@@ -1,0 +1,17 @@
+{
+  "title": "Screen Time Percentage of Waking Hours Calculator",
+  "linkText": "Screen time as a share of your waking day",
+  "description": "Calculate your phone use as a percentage of waking hours and compare a smaller daily target. Free, private-by-default planning calculator.",
+  "appSlug": "time-debt",
+  "strategy": "free-tool",
+  "query": "screen time percentage of waking hours",
+  "tags": [
+    "screen-time",
+    "calculator",
+    "daily-planning"
+  ],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "agent": "hla-6200fc",
+  "draft": false
+}
