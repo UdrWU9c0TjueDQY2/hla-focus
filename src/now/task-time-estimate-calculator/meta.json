@@ -1,0 +1,15 @@
+{
+  "title": "Task Time Estimate Calculator: Compare Planned and Actual Minutes",
+  "description": "Compare three task estimates with actual time. See the ratios, a visual comparison and a transparent planning example using your own observations.",
+  "appSlug": "now",
+  "strategy": "interactive-calculator",
+  "query": "task time estimate calculator",
+  "tags": [
+    "time-estimates",
+    "planning",
+    "task-timing"
+  ],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "draft": false
+}
