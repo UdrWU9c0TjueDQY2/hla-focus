@@ -156,10 +156,7 @@ table{width:100%;border-collapse:collapse;font-size:.95rem;margin:14px 0}th,td{t
 var qs=[[11.20,20,8.80],[7.45,10,2.55],[13.30,20,6.70],[4.15,5,0.85],[16.40,20,3.60]];
 var q=document.getElementById('q'),o=document.getElementById('opts'),sc=document.getElementById('sc'),res=document.getElementById('res'),bar=document.getElementById('bar');
 var i=0,score=0,t0=0,tick=null,set=[],locked=true,playing=false,epoch=0,pending=null;
-function fmt(x){return '</script>
-</body>
-</html>
-+x.toFixed(2);}
+function fmt(x){return '$'+x.toFixed(2);}
 function shuffle(a){for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=a[k];a[k]=a[j];a[j]=t;}return a;}
 function cancelPending(){if(pending!==null){clearTimeout(pending);pending=null;}}
 function ask(){
