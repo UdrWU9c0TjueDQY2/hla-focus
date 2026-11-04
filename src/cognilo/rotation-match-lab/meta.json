@@ -1,0 +1,15 @@
+{
+  "title": "Rotation Matching Game: Six Free Shape Puzzles",
+  "description": "Find the rotated twin among a mirror image and a different shape. Play six untimed puzzles, turn the target and reveal explanations without a score.",
+  "appSlug": "cognilo",
+  "strategy": "playable-demo",
+  "query": "rotation matching game",
+  "tags": [
+    "spatial-puzzles",
+    "rotation",
+    "brain-games"
+  ],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "draft": false
+}
