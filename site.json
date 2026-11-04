@@ -1,0 +1,38 @@
+{
+ "name": "Focus and Screen Time",
+ "tagline": "App blockers, focus tests and brain training that respect your time",
+ "baseUrl": "https://focus-and-screen-time.pages.dev",
+ "indexNowKey": "1c567a444d8895d5d6b90ccb20b0f3fc",
+ "apps": [
+  {
+   "slug": "focuspass",
+   "name": "FocusPass: App Blocker",
+   "id": 6795610975
+  },
+  {
+   "slug": "time-debt",
+   "name": "Time Debt: Screen Time",
+   "id": 6792393696
+  },
+  {
+   "slug": "now",
+   "name": "Now: ADHD Task Starter",
+   "id": 6794488304
+  },
+  {
+   "slug": "attention-age",
+   "name": "Attention Age: Focus Test",
+   "id": 6795311726
+  },
+  {
+   "slug": "skillarena",
+   "name": "SkillArena: Focus Training",
+   "id": 6795713307
+  },
+  {
+   "slug": "cognilo",
+   "name": "Cognilo: Brain Training Games",
+   "id": 6808798253
+  }
+ ]
+}
