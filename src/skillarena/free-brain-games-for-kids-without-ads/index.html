@@ -152,13 +152,56 @@ table{width:100%;border-collapse:collapse;font-size:.95rem;margin:14px 0}th,td{t
 <footer class="hla-footer"><p><strong>Honest Little Apps</strong> publishes small iPhone apps and these companion resources. No cookies, no email capture. <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/">Focus and Screen Time</a></p><p>Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc. · © <!--HLA:YEAR--> Honest Little Apps</p></footer>
 </div>
 <script>
-(function(){var qs=[[11.20,20,8.80],[7.45,10,2.55],[13.30,20,6.70],[4.15,5,0.85],[16.40,20,3.60]];var q=document.getElementById('q'),o=document.getElementById('opts'),sc=document.getElementById('sc'),res=document.getElementById('res'),bar=document.getElementById('bar');var i=0,score=0,t0=0,tick=null,set=[];
-function fmt(x){return '$'+x.toFixed(2);}
+(function(){
+var qs=[[11.20,20,8.80],[7.45,10,2.55],[13.30,20,6.70],[4.15,5,0.85],[16.40,20,3.60]];
+var q=document.getElementById('q'),o=document.getElementById('opts'),sc=document.getElementById('sc'),res=document.getElementById('res'),bar=document.getElementById('bar');
+var i=0,score=0,t0=0,tick=null,set=[],locked=true,playing=false,epoch=0,pending=null;
+function fmt(x){return '</script>
+</body>
+</html>
++x.toFixed(2);}
 function shuffle(a){for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=a[k];a[k]=a[j];a[j]=t;}return a;}
-function ask(){if(i>=3||Date.now()-t0>20000){return end();}var c=set[i];q.textContent='Order '+fmt(c[0])+'. You pay '+fmt(c[1])+'. Change?';var ans=c[2];var opts=shuffle([ans,ans+1,ans-0.5<0?ans+0.5:ans-0.5,ans+0.2]);o.innerHTML='';opts.forEach(function(v){var b=document.createElement('button');b.type='button';b.textContent=fmt(v);b.addEventListener('click',function(){if(Math.abs(v-ans)<0.001){b.className='ok';score++;}else{b.className='bad';}i++;setTimeout(ask,350);});o.appendChild(b);});sc.textContent='Question '+(i+1)+' of 3';}
-function end(){clearInterval(tick);bar.style.width='0%';q.textContent='Done';o.innerHTML='';res.textContent=score+' of 3 in '+Math.min(20,Math.round((Date.now()-t0)/1000))+' seconds. '+(score===3?'Clean sweep. In the app the difficulty would step up next time.':'Close. In the app the next round adapts to this one.');var b=document.createElement('button');b.type='button';b.textContent='Play again';b.addEventListener('click',start);o.appendChild(b);}
-function start(){i=0;score=0;res.textContent='';set=shuffle(qs.slice()).slice(0,3);t0=Date.now();clearInterval(tick);tick=setInterval(function(){var p=Math.max(0,100-(Date.now()-t0)/200);bar.style.width=p+'%';if(p<=0)end();},100);ask();}
-document.getElementById('start').addEventListener('click',start);})();
+function cancelPending(){if(pending!==null){clearTimeout(pending);pending=null;}}
+function ask(){
+  if(!playing)return;
+  if(i>=3||Date.now()-t0>=20000){end();return;}
+  locked=false;
+  var c=set[i],question=i,token=epoch;
+  q.textContent='Order '+fmt(c[0])+'. You pay '+fmt(c[1])+'. Change?';
+  var ans=c[2],opts=shuffle([ans,ans+1,ans-0.5<0?ans+0.5:ans-0.5,ans+0.2]);
+  o.innerHTML='';
+  opts.forEach(function(v){
+    var b=document.createElement('button');b.type='button';b.textContent=fmt(v);
+    b.addEventListener('click',function(){
+      if(!playing||locked||token!==epoch||question!==i)return;
+      if(Date.now()-t0>=20000){end();return;}
+      locked=true;
+      o.querySelectorAll('button').forEach(function(option){option.disabled=true;});
+      if(Math.abs(v-ans)<0.001){b.className='ok';score++;}else{b.className='bad';}
+      i++;
+      pending=setTimeout(function(){if(token!==epoch||!playing)return;pending=null;ask();},350);
+    });
+    o.appendChild(b);
+  });
+  sc.textContent='Question '+(i+1)+' of 3';
+}
+function end(){
+  if(!playing)return;
+  playing=false;locked=true;epoch++;
+  clearInterval(tick);tick=null;cancelPending();
+  bar.style.width='0%';q.textContent='Done';sc.textContent='Round complete';o.innerHTML='';
+  res.textContent=score+' of 3 in '+Math.min(20,Math.round((Date.now()-t0)/1000))+' seconds. This is a separate web game, not an assessment or a prediction of your app results.';
+  var b=document.createElement('button');b.type='button';b.textContent='Play again';b.addEventListener('click',start);o.appendChild(b);
+}
+function start(){
+  epoch++;cancelPending();clearInterval(tick);
+  i=0;score=0;res.textContent='';set=shuffle(qs.slice()).slice(0,3);t0=Date.now();playing=true;locked=false;
+  var token=epoch;
+  tick=setInterval(function(){if(token!==epoch||!playing)return;var p=Math.max(0,100-(Date.now()-t0)/200);bar.style.width=p+'%';if(p<=0)end();},100);
+  ask();
+}
+document.getElementById('start').addEventListener('click',start);
+})();
 </script>
 </body>
 </html>
