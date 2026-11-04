@@ -1,0 +1,11 @@
+{
+  "title": "Compare Two Screen Time Weeks Without the Partial-Week Trap",
+  "description": "Compare screen-time minutes on matching weekdays only. This free tool leaves missing days out, shows the arithmetic and separates a partial week from a full week.",
+  "appSlug": "time-debt",
+  "strategy": "interactive-tool",
+  "query": "compare screen time weeks daily average partial week",
+  "tags": [],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "draft": false
+}
