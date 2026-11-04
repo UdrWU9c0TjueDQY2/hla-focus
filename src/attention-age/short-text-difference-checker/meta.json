@@ -1,0 +1,11 @@
+{
+  "title": "Short Text Difference Checker: Find Changed Letters, Spaces and Numbers",
+  "description": "Compare two short texts locally. Highlight inserted and removed characters, including spaces and line breaks. Free proofreading helper with a worked example.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-tool",
+  "query": "short text difference checker",
+  "tags": [],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "draft": false
+}
