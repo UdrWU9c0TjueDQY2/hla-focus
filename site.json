@@ -1,8 +1,8 @@
 {
- "name": "Focus and Screen Time",
- "tagline": "App blockers, focus tests and brain training that respect your time",
- "baseUrl": "https://udrwu9c0tjuedqy2.github.io/hla-focus",
- "indexNowKey": "1c567a444d8895d5d6b90ccb20b0f3fc",
+ "name": "Focus & Screen Time",
+ "tagline": "App blocking, ADHD task starting, attention tests and brain training, explained honestly.",
+ "baseUrl": "https://focus-habit-tools.pages.dev",
+ "indexNowKey": "0fae41b288d75927de0c96df84b6894a",
  "apps": [
   {
    "slug": "focuspass",

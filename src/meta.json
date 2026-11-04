@@ -1,14 +1,15 @@
 {
- "title": "Focus and Screen Time | Free iPhone apps by Honest Little Ap",
- "linkText": "Focus and Screen Time",
- "description": "App blockers, focus tests and brain training that respect your time",
+ "title": "Focus & Screen Time \u00b7 Honest Little Apps",
+ "linkText": "Focus & Screen Time",
+ "description": "App blocking, ADHD task starting, attention tests and brain training, explained honestly.",
  "appSlug": "hub",
  "strategy": "hub-home",
- "query": "focus and screen time",
+ "query": "focus & screen time",
  "tags": [
   "focus"
  ],
- "published": "2026-11-04",
- "agent": "hla-0d020d",
+ "published": "2026-11-03",
+ "updated": "2026-11-03",
+ "agent": "hla-34ca5c",
  "draft": true
 }
