@@ -1,0 +1,11 @@
+{
+  "title": "Mirror Grid Puzzle: Reflect or Rotate a 4 by 4 Pattern",
+  "description": "Build the mirrored or rotated version of a four-by-four pattern. Six free puzzles, three transformation rules, checks and answer reveals. No timer.",
+  "appSlug": "skillarena",
+  "strategy": "interactive-tool",
+  "query": "mirror grid puzzle",
+  "tags": [],
+  "published": "2026-11-04",
+  "updated": "2026-11-04",
+  "draft": false
+}
