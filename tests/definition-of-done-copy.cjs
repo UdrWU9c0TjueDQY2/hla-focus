@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const html=fs.readFileSync(process.argv[2]||__dirname+'/../src/now/definition-of-done/index.html','utf8');
+function setup(writeText){const els={};for(const id of ['task','done','outside','start','o-task','o-done','o-outside','o-start','status','example','clear','copy','copy-status'])els[id]={value:'',textContent:'',disabled:false,events:{},addEventListener(k,f){this.events[k]=f}};
+vm.runInNewContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],{document:{getElementById:id=>els[id]},navigator:{clipboard:{writeText}}});return els;}
+(async()=>{let copied;let e=setup(async t=>copied=t);await e.copy.events.click();assert.equal((copied.match(/\[Not written yet\]/g)||[]).length,4);assert(!e.copy.disabled);console.log('PASS blank sections labelled unwritten');
+e.example.value='desk';e.example.events.change();await e.copy.events.click();assert(copied.includes('An open notebook fits'));assert(copied.includes('PARK FOR LATER'));assert.match(e['copy-status'].textContent,/Card copied/);console.log('PASS actual example copied with section labels');
+e.task.value='<script>literal</script>\nSecond line';e.task.events.input();assert.equal(e['copy-status'].textContent,'');await e.copy.events.click();assert(copied.includes(e.task.value));console.log('PASS literal multiline text and stale status cleared');
+e.clear.events.click();await e.copy.events.click();assert(!copied.includes('notebook'));console.log('PASS cleared content not copied');
+e=setup(async()=>{throw Error('denied')});await e.copy.events.click();assert.match(e['copy-status'].textContent,/manually/);assert(!e.copy.disabled);console.log('PASS clipboard failure fallback');
+let release;e=setup(()=>new Promise(r=>release=r));const pending=e.copy.events.click();assert(e.copy.disabled);e.task.value='Changed while copying';e.task.events.input();release();await pending;assert.match(e['copy-status'].textContent,/earlier card/);assert(!e.copy.disabled);console.log('PASS copy race tells user to copy updated card');
+assert(!/<\/[a-z][a-z0-9]*\s+[^>]+>/i.test(html));assert.equal((html.match(/href="https:\/\/apps.apple.com/g)||[]).length,1);assert(!/localStorage|innerHTML|fetch\(|XMLHttpRequest/.test(html));console.log('PASS metadata and local-only handling');})().catch(e=>{console.error(e);process.exit(1)});
