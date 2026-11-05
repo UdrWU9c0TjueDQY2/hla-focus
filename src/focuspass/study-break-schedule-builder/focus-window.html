@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Find an uninterrupted focus window | FocusPass</title><meta name="description" content="See which gaps between commitments can fit one uninterrupted work or study session."><link rel="canonical" href="https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/study-break-schedule-builder/focus-window.html">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f1e8;color:#1d3430;font:17px/1.55 system-ui,sans-serif}main{max-width:840px;margin:auto;padding:24px clamp(16px,5vw,48px) 56px}a{color:#185b48}h1{font:700 clamp(2.7rem,8vw,4.7rem)/1.03 Georgia,serif;letter-spacing:-.045em;max-width:16ch;margin:1.7rem 0 .8rem}h2{font:700 1.5rem/1.25 Georgia,serif;margin:.5rem 0 1rem}.card{padding:clamp(16px,3vw,26px);border:1px solid #bfcbc1;border-radius:12px;background:#fffdf9;margin:1.3rem 0}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,135px),1fr));gap:.7rem}.times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}label{display:block;font-weight:650;font-size:.95rem}input{font:inherit;min-height:44px;width:100%;margin-top:.3rem;padding:.45rem;border:1px solid #697e71;border-radius:5px;color:inherit;background:white}fieldset{border:0;border-top:1px solid #d1dacf;padding:12px 0;margin:0 0 .2rem;min-width:0}legend{font-weight:700;padding-right:8px}button,.store{display:inline-block;background:#205844;color:#fff;border:1px solid #205844;font:650 1rem system-ui;border-radius:6px;min-height:44px;padding:.6rem .95rem;cursor:pointer;text-decoration:none}.summary{font-size:1.15rem;font-weight:700}.gaps{padding:0;list-style:none}.gaps li{margin:.35rem 0;padding:.65rem .8rem;background:#edf4ed;border-radius:5px}.muted{font-size:.9rem}a:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid #bd6a16;outline-offset:3px}
+</style></head><body><main><a href="./">← Study-break schedule builder</a><h1>Find a gap long enough to focus.</h1><p>Enter today’s available window, your fixed commitments and the length of the uninterrupted session you want. Two short gaps on either side of a meeting stay separate.</p>
+<section class="card"><h2>Your available time</h2><div class="row"><label>Start<input id="start" type="time" value="09:00" required></label><label>Finish<input id="end" type="time" value="12:00" required></label><label>Session length (minutes)<input id="length" type="number" min="1" max="1440" value="45" required></label></div><h2>Fixed commitments</h2><p class="muted">Use same-day times. Leave both boxes blank to skip a row.</p>
+<fieldset><legend>Commitment 1</legend><div class="times"><label>From<input id="a1" type="time" value="09:30"></label><label>Until<input id="b1" type="time" value="09:50"></label></div></fieldset>
+<fieldset><legend>Commitment 2</legend><div class="times"><label>From<input id="a2" type="time" value="10:10"></label><label>Until<input id="b2" type="time" value="10:45"></label></div></fieldset>
+<fieldset><legend>Commitment 3</legend><div class="times"><label>From<input id="a3" type="time"></label><label>Until<input id="b3" type="time"></label></div></fieldset>
+<button type="button" id="reset">Restore example</button></section>
+<section class="card" aria-label="Available uninterrupted time" aria-live="polite"><p id="summary" class="summary"></p><ul id="gaps" class="gaps"></ul><p id="note"></p></section>
+<h2>Set aside the time you chose</h2><p>Once you have a window, FocusPass can shield selected distracting apps during a focus session. This calculator reads only the times entered here and adds nothing to your calendar.</p><a class="store" href="https://apps.apple.com/us/app/focuspass-app-blocker/id6795610975">View FocusPass on the App Store</a><p class="muted">Published by Honest Little Apps.</p></main>
+<script>
+const el=id=>document.getElementById(id);
+const minutes=value=>{const [h,m]=value.split(':').map(Number);return h*60+m;};
+const clock=n=>String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');
+function showError(text){el('summary').textContent=text;el('gaps').replaceChildren();el('note').textContent='';}
+function update(){
+ const start=minutes(el('start').value),end=minutes(el('end').value),length=el('length').valueAsNumber;
+ if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start)return showError('Choose a same-day window with a finish after its start.');
+ if(!Number.isInteger(length)||length<1||length>1440)return showError('Choose a whole session length from 1 to 1,440 minutes.');
+ const busy=[];
+ for(let row=1;row<=3;row++){
+  const from=el('a'+row).value,until=el('b'+row).value;
+  if(!from&&!until)continue;
+  if(!from||!until||minutes(until)<=minutes(from))return showError('Complete both times for commitment '+row+', with its finish after its start.');
+  const lo=Math.max(start,minutes(from)),hi=Math.min(end,minutes(until));
+  if(lo<hi)busy.push([lo,hi]);
+ }
+ busy.sort((a,b)=>a[0]-b[0]);const free=[];let cursor=start;
+ for(const [lo,hi] of busy){if(cursor<lo)free.push([cursor,lo]);cursor=Math.max(cursor,hi);}
+ if(cursor<end)free.push([cursor,end]);
+ const suitable=free.filter(([lo,hi])=>hi-lo>=length);
+ const total=free.reduce((sum,[lo,hi])=>sum+hi-lo,0),longest=Math.max(0,...free.map(([lo,hi])=>hi-lo));
+ el('summary').textContent=suitable.length?suitable.length+' uninterrupted '+(suitable.length===1?'window fits':'windows fit')+' a '+length+'-minute session.':'No uninterrupted window fits '+length+' minutes.';
+ el('gaps').replaceChildren();
+ for(const [lo,hi] of suitable){
+  const item=document.createElement('li');item.textContent=clock(lo)+'–'+clock(hi)+' ('+(hi-lo)+' minutes). '+(hi-lo===length?'Start at '+clock(lo)+'.':'Possible starts: '+clock(lo)+' to '+clock(hi-length)+'.');el('gaps').append(item);
+ }
+ el('note').textContent='Free time across all gaps: '+total+' minutes. Longest single gap: '+longest+' minutes.';
+}
+document.querySelectorAll('input').forEach(f=>f.addEventListener('input',update));
+el('reset').onclick=()=>{document.querySelectorAll('input').forEach(f=>f.value=f.defaultValue);update();};update();
+</script></body></html>
