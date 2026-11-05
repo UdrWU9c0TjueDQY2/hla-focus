@@ -50,7 +50,9 @@ section{margin-top:36px}
 .flip{perspective:1000px;min-height:200px}.flip button{font:inherit;width:100%;height:100%;min-height:200px;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);text-align:left;position:relative;transform-style:preserve-3d;transition:transform .5s}.flip button[aria-pressed=true]{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:14px 16px;border:1px solid var(--line);background:var(--panel)}.face.back{transform:rotateY(180deg);background:var(--panel2);border-color:var(--green)}.face .t{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:6px}.face p{margin:0;font-size:15px}.face small{display:block;color:var(--mute);font-size:12px;margin-top:8px}.face .tap{position:absolute;right:12px;bottom:10px;font-size:12px;color:var(--mute)}
 .notfor{list-style:none;padding:0;margin:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.notfor li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px}.notfor b{display:block}
-.proof{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}.proof figure{margin:0}.duo{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,var(--green),#0b3a28);isolation:isolate}.duo img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.25) brightness(1.2);mix-blend-mode:multiply;transition:filter .3s}.duo::after{content:"";position:absolute;inset:0;background:#0b1410;mix-blend-mode:lighten;transition:opacity .3s;pointer-events:none}.duo:hover img,.duo:focus-within img{filter:none;mix-blend-mode:normal}.duo:hover::after,.duo:focus-within::after{opacity:0}.proof figcaption{font-size:13.5px;color:var(--mute);margin-top:5px}
+
+.walk-shortcut{display:inline-flex;align-items:center;min-height:44px;line-height:1.3;font-weight:600;margin-top:6px}.pass-walk{scroll-margin-block-start:12px;border:1px solid #31513f;border-radius:18px;padding:clamp(14px,3vw,28px);background:#0b1711}.walk-grid{display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:clamp(18px,3vw,34px);align-items:start}.walk-grid>*{min-width:0}.walk-video{margin:0}.walk-video video{display:block;width:100%;height:auto;aspect-ratio:4/5;background:#0a1512;border:1px solid #365143;border-radius:12px}.walk-video figcaption{color:var(--mute);font-size:14px;margin:8px 0 0}.walk-text ol{list-style:none;margin:0;padding:0;counter-reset:proof}.walk-text li{counter-increment:proof;border-top:1px solid #294134;padding:11px 0;display:grid;grid-template-columns:26px 1fr;column-gap:10px;align-items:start}.walk-text li::before{content:'0' counter(proof);font:700 14px/1.65 ui-monospace,monospace;color:var(--green)}.walk-text li strong{display:block;font-size:17px}.walk-text li p{margin:3px 0;line-height:1.48}.walk-links{display:flex;gap:4px 14px;flex-wrap:wrap}.walk-links a,.walk-text li a{display:inline-flex;min-height:42px;align-items:center;text-underline-offset:3px}.walk-text li a{font-size:14px}.walk-access{margin:13px 0 0;padding:12px 14px;background:#11271b;border-left:3px solid var(--green);font-size:15px}.walk-access p{margin:0 0 6px}.walk-access a{font-weight:700}.pass-walk .walk-kicker{color:var(--green);text-transform:uppercase;font-size:12px;letter-spacing:.11em;font-weight:700;margin-bottom:7px}.pass-walk h2{margin-bottom:6px}.pass-walk .walk-intro{max-width:65ch;color:var(--mute)}
+@media(max-width:700px){.walk-grid{grid-template-columns:minmax(0,1fr)}.walk-video{max-width:400px;margin-inline:auto}.walk-text li{padding:9px 0}}
 details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}summary{cursor:pointer;font-weight:600}details p{margin:10px 0 0;color:#dff5ea}
 .cta{background:linear-gradient(160deg,#0f2d20,#0b1410);border:1px solid var(--green);border-radius:18px;padding:26px 22px;text-align:center}.cta h2{margin-top:0}.cta p{color:var(--mute)}
 .sources{font-size:14px;color:var(--mute)}.sources ol{padding-left:20px}
@@ -58,8 +60,8 @@ details{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 .hla-foot{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 48px;font-size:14px;color:var(--mute)}.hla-foot a{color:var(--mute)}.hla-legal{font-size:12px}
 ul{padding-left:20px}li{margin:.3em 0}
 @media (max-width:820px){.split{grid-template-columns:1fr}.tool{position:static;order:-1}.paper{display:none}}
-@media (max-width:760px){.proof{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.proof{grid-template-columns:1fr}.form{grid-template-columns:1fr}.out{grid-template-columns:1fr}.out .wide{grid-column:span 1}}
+
+@media (max-width:480px){.form{grid-template-columns:1fr}.out{grid-template-columns:1fr}.out .wide{grid-column:span 1}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 </style>
@@ -83,7 +85,7 @@ ul{padding-left:20px}li{margin:.3em 0}
 <div><b id="yr">—</b><span>days a year, at that rate</span></div>
 <div class="wide"><b id="back">—</b><span>hours a week back if you Go Back at the rate you said, and the other opens become timed Passes that end on their own</span></div>
 </div>
-<p class="fine">Arithmetic, not a promise. The second figure assumes a Pass is the same length as your Ignore Limit visit; in the app you pick 5, 10 or 15 minutes and it relocks by itself.</p>
+<p class="fine">Arithmetic, not a promise. The hours-back estimate assumes each skipped visit would have lasted the number of minutes you entered and other visits would take the same time as before. In FocusPass, you choose a duration; the selected app relocks when that Pass ends.</p>
 </div>
 <div class="copy">
 <svg class="paper" viewBox="0 0 170 170" aria-hidden="true"><defs><filter id="sh"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".6"/></filter></defs><g filter="url(#sh)"><rect x="20" y="30" width="110" height="110" rx="18" fill="#0f2d20"/><rect x="40" y="20" width="100" height="100" rx="18" fill="#17603f"/><circle cx="95" cy="70" r="26" fill="#3ef29b"/><rect x="88" y="66" width="14" height="30" rx="4" fill="#0b1410"/><circle cx="95" cy="64" r="7" fill="#0b1410"/></g></svg>
@@ -91,6 +93,7 @@ ul{padding-left:20px}li{margin:.3em 0}
 <h1>What to do when <span>Ignore Limit wins again.</span></h1>
 <p class="lede">If you have typed “iphone screen time limits don’t work” into a search box at 11 pm, the problem is not the limit. It is that the limit asks you to stop and then offers a button that says you do not have to. Four methods compared, honestly, including ours.</p>
 <a class="badge" href="https://apps.apple.com/app/id6795610975?ct=focus-screen-time-limits-dont&mt=8" rel="noopener"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/en-us?releaseDate=1751500800" alt="Download FocusPass: App Blocker on the App Store" width="150" height="50"><span>Open FocusPass in the App Store · free tier</span></a>
+<p><a class="walk-shortcut" href="#pass-walkthrough">See a ten-minute Pass in 24 seconds</a></p>
 </div>
 </div>
 
@@ -100,10 +103,24 @@ ul{padding-left:20px}li{margin:.3em 0}
 <p class="note" style="color:var(--mute);font-size:14px">The question is always the same: what happens at the moment you want the app? Swipe sideways.</p>
 <div class="strip" role="list">
 <article role="listitem"><h3>Screen Time App Limits</h3><dl><dt>At the moment you want the app</dt><dd>A limit screen with an ignore option, or a passcode prompt if one is set</dd><dt>Who holds the key</dt><dd>You, unless you give the passcode away</dd><dt>Cost</dt><dd>Free, built in</dd><dt>Best for</dt><dd>Awareness; a partner-held passcode</dd></dl></article>
-<article role="listitem"><h3>Deleting the app</h3><dl><dt>At the moment you want the app</dt><dd>App Store, search, reinstall, sign in: about a minute</dd><dt>Who holds the key</dt><dd>You</dd><dt>Cost</dt><dd>Free</dd><dt>Best for</dt><dd>Apps you are actually done with</dd></dl></article>
+<article role="listitem"><h3>Deleting the app</h3><dl><dt>At the moment you want the app</dt><dd>Reinstall the app; you may also need to sign in again</dd><dt>Who holds the key</dt><dd>You</dd><dt>Cost</dt><dd>Free</dd><dt>Best for</dt><dd>Apps you are actually done with</dd></dl></article>
 <article role="listitem"><h3>A Focus mode</h3><dl><dt>At the moment you want the app</dt><dd>Nothing; Focus silences notifications, it does not block opening</dd><dt>Who holds the key</dt><dd>Nobody; there is no lock</dd><dt>Cost</dt><dd>Free, built in</dd><dt>Best for</dt><dd>Stopping the pull, not the push</dd></dl></article>
-<article class="ours" role="listitem"><h3>FocusPass (ours)</h3><dl><dt>At the moment you want the app</dt><dd>A native shield: Go Back, or Use a Pass of 5, 10 or 15 minutes with a reason; relock scheduled with iOS</dd><dt>Who holds the key</dt><dd>You; Turn Off All Protection always works</dd><dt>Cost</dt><dd>Free tier; Pro subscription optional</dd><dt>Best for</dt><dd>Keeping the app, losing the autopilot</dd></dl></article>
+<article class="ours" role="listitem"><h3>FocusPass (ours)</h3><dl><dt>At the moment you want the app</dt><dd>A shield offers Go Back or Use a Pass. Choose a duration; a reason is optional. iOS schedules the relock.</dd><dt>Who holds the key</dt><dd>You; Turn Off All Protection always works</dd><dt>Cost</dt><dd>Free tier; Pro subscription optional</dd><dt>Best for</dt><dd>Keeping the app, losing the autopilot</dd></dl></article>
 </div>
+</section>
+
+<section class="pass-walk" id="pass-walkthrough" aria-labelledby="pass-walk-title">
+<p class="walk-kicker">FocusPass · screenshot walkthrough</p>
+<h2 id="pass-walk-title">What happens when a timed Pass ends?</h2>
+<p class="walk-intro">The selected app becomes protected again when its Pass expires. Here is how a ten-minute reply differs from tapping Ignore Limit. The walkthrough uses three real App Store screenshots; it does not operate your phone.</p>
+<div class="walk-grid"><figure class="walk-video">
+<video width="640" height="800" controls playsinline preload="none" poster="pass-walkthrough-poster.webp" aria-label="FocusPass timed Pass: silent screenshot walkthrough" aria-describedby="pass-video-caption"><source src="pass-walkthrough.mp4" type="video/mp4"><track kind="captions" label="English" srclang="en" src="pass-walkthrough.vtt">Read the three steps below or open the MP4 directly.</video>
+<figcaption id="pass-video-caption">24 seconds · silent, with on-screen text. Made by Honest Little Apps from its iPhone listing images. <a href="pass-walkthrough.mp4">Open video file</a>.</figcaption>
+</figure><div class="walk-text"><ol aria-label="Walkthrough transcript and full screenshots">
+<li><div><strong>At the icon, you have a choice.</strong><p>The Home screen shows your available Passes. When you open an app you’ve protected, its shield offers Go Back or Use a Pass. Go Back records a Focus Save, not minutes saved.</p><a href="/assets/focuspass/screen-1-780.webp">View the full Home screenshot</a></div></li>
+<li><div><strong>Pick enough time for the reply.</strong><p>The official Pass screen shows 5, 10 and 20 minutes, with 10 selected. “Reply” is an example reason. You can leave the reason out.</p><a href="/assets/focuspass/screen-2-780.webp">View the full Pass screenshot</a></div></li>
+<li><div><strong>At ten minutes, protection returns.</strong><p>iOS schedules the relock before access starts, even if you close FocusPass. The last image is Protection Check: it shows whether setup is working. It is not a recording of the moment the Pass expires.</p><a href="/assets/focuspass/screen-8-780.webp">View the full Protection Check screenshot</a></div></li>
+</ol><div class="walk-access"><p><strong>Included free:</strong> shields for selected apps, timed Passes and automatic relocking. Pro adds more Wallets and Focus Zones, among other options. You can turn off protection on either tier.</p><div class="walk-links"><a href="https://apps.apple.com/app/id6795610975?ct=focus-screen-time-limits-dont&amp;mt=8" rel="noopener">View FocusPass on the App Store</a></div></div></div></div>
 </section>
 
 <section>
@@ -135,15 +152,6 @@ ul{padding-left:20px}li{margin:.3em 0}
 </section>
 
 <section>
-<h2>What it looks like</h2>
-<div class="proof">
-<figure><div class="duo"><img src="/assets/focuspass/screen-1-390.webp" srcset="/assets/focuspass/screen-1-390.webp 390w, /assets/focuspass/screen-1-780.webp 780w" sizes="(max-width:480px) 90vw, 300px" width="390" height="844" alt="FocusPass home: Protected, today's Passes with 5 remaining at 10 minutes each, Use a Pass button, Start 25-min Focus" loading="lazy" tabindex="0"></div><figcaption>Home: Passes left today, one tap to a Deep Focus. Tap for colour.</figcaption></figure>
-<figure><div class="duo"><img src="/assets/focuspass/screen-2-390.webp" srcset="/assets/focuspass/screen-2-390.webp 390w, /assets/focuspass/screen-2-780.webp 780w" sizes="(max-width:480px) 90vw, 300px" width="390" height="844" alt="FocusPass Distractions Pass screen: How long do you need, with Quick 5, Standard 10 and Extended 20 minute options and a Use 10-Minute Pass button" loading="lazy" tabindex="0"></div><figcaption>A Pass: pick the length, say why, it relocks on its own.</figcaption></figure>
-<figure><div class="duo"><img src="/assets/focuspass/screen-4-390.webp" srcset="/assets/focuspass/screen-4-390.webp 390w, /assets/focuspass/screen-4-780.webp 780w" sizes="(max-width:480px) 90vw, 300px" width="390" height="844" alt="FocusPass Progress screen: a heatmap of when Passes happen by hour and day, Go Back count and a note that most Passes happen after 9 PM" loading="lazy" tabindex="0"></div><figcaption>The heatmap, and one pattern it points out.</figcaption></figure>
-</div>
-</section>
-
-<section>
 <h2>Who should skip it</h2>
 <ul class="notfor">
 <li><b>People who need a lock they cannot open.</b> Use Screen Time with a passcode held by someone else. FocusPass keeps the off switch in your hands by design.</li>
@@ -168,7 +176,7 @@ ul{padding-left:20px}li{margin:.3em 0}
 <h2>Sources</h2>
 <ol>
 <li>Apple Support, <a href="https://support.apple.com/en-us/108806" rel="noopener">Screen Time</a> (passcode and limits overview), and Apple Community thread <a href="https://discussions.apple.com/thread/253661766" rel="noopener">How to disable the “one more minute” Screen Time limit</a> (2022–2024; users report the option cannot be removed directly).</li>
-<li><a href="https://apps.apple.com/app/id6795610975?ct=focus-screen-time-limits-dont&mt=8" rel="noopener">FocusPass: App Blocker on the App Store</a>, listing read 4 November 2026 (version 2.2): shield choices, Pass lengths, iOS-scheduled relock, Focus Saves, free tier and Pro, Turn Off All Protection, privacy.</li>
+<li><a href="https://apps.apple.com/app/id6795610975?ct=focus-screen-time-limits-dont&mt=8" rel="noopener">FocusPass: App Blocker on the App Store</a>, listing rechecked 5 November 2026 (version 2.2): shield choices, Pass lengths, iOS-scheduled relock, Focus Saves, free tier and Pro, Turn Off All Protection, privacy.</li>
 </ol>
 <p>The calculator above is arithmetic on numbers you typed. It makes no claim about what any method will do for you.</p>
 </section>
