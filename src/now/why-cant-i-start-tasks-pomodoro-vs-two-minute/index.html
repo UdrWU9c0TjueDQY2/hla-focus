@@ -121,10 +121,10 @@ details{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 <h3>The twenty-second starter</h3>
 <p style="margin:0;font-size:15px;color:var(--mute)">The app’s starter lasts two minutes. Here, choose a first step and try it for twenty seconds. You can end the browser session early.</p>
 <label for="task">The task you are not starting</label><input id="task" type="text" placeholder="e.g. write the report" autocomplete="off">
-<p class="sug" id="sug"></p>
+<label for="step">Your first step</label><input id="step" type="text" placeholder="Type a first step or use the suggestion" autocomplete="off"><p class="sug" id="sug" role="status"></p>
 <div class="ringwrap"><div class="ring"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" id="fg" cx="80" cy="80" r="70"/></svg><b id="cnt">20</b></div></div>
-<div class="act"><button type="button" id="go">Start for twenty seconds</button><button type="button" class="ghost" id="smaller">Make it smaller</button></div>
-<p class="res" id="res"></p>
+<div class="act"><button type="button" id="go">Start for twenty seconds</button><button type="button" class="ghost" id="smaller" disabled>Make it smaller</button></div>
+<p class="res" id="res" role="status"></p>
 <p class="fine">Runs in your browser; nothing is saved. In Now the ring is two minutes, keeps time when the phone is locked, and ending early still counts.</p>
 </section>
 
@@ -153,13 +153,15 @@ details{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 <script>
 (function(){
  var task=document.getElementById('task'), sug=document.getElementById('sug'), fg=document.getElementById('fg'), cnt=document.getElementById('cnt'), go=document.getElementById('go'), smaller=document.getElementById('smaller'), res=document.getElementById('res');
+ var step=document.getElementById("step");
  var level=0, running=false, tm=null, deadline=0, C=440;
  var ladders=[['open the thing and read the first line','open the thing','put your hand on the keyboard'],['write one sentence, badly','write the first three words','type the title'],['do the first item only','find the first item','write the list of items on paper'],['do it for the length of one song','do the first minute','stand up and walk to where it happens']];
- function pick(){ var t=(task.value||'').toLowerCase(); var i = /write|email|report|essay|draft|reply/.test(t)?1:(/clean|tidy|laundry|dishes|kitchen|sort|pack/.test(t)?2:(/call|book|phone|appointment|form|tax|bill/.test(t)?0:3)); var l=ladders[i]; sug.textContent = t ? 'First step: '+l[Math.min(level,l.length-1)]+'.' : ''; }
+ function pick(){ var t=(task.value||'').toLowerCase(); var i = /write|email|report|essay|draft|reply/.test(t)?1:(/clean|tidy|laundry|dishes|kitchen|sort|pack/.test(t)?2:(/call|book|phone|appointment|form|tax|bill/.test(t)?0:3)); var l=ladders[i]; step.value=t.trim()?l[level]:''; sug.textContent=t.trim()?'You can edit this step before you start.':''; sync(); }
+ function sync(){smaller.disabled=running||!task.value.trim()||level===2;}
  task.addEventListener('input',function(){ level=0; pick(); });
  smaller.addEventListener('click',function(){ level=Math.min(level+1,2); pick(); });
  function finish(early) {
-   clearInterval(tm); tm=null; running=false; task.readOnly=false; smaller.disabled=false;
+   clearInterval(tm); tm=null; running=false; task.readOnly=false; step.readOnly=false; sync();
    go.textContent='Start again'; res.classList.add('on');
    res.textContent=early ? 'Session ended early. Keep the step, make it smaller, or choose another task.' : 'Twenty seconds elapsed. Keep working, stop here, or make the first step smaller.';
  }
@@ -172,6 +174,8 @@ details{background:var(--panel);border:1px solid var(--line);border-radius:12px;
  go.addEventListener('click',function(){
    if(running){tick();if(running)finish(true);return;}
    if(!task.value.trim()){task.focus();sug.textContent='Enter the task you want to start.';return;}
+   if(!step.value.trim()){step.focus();sug.textContent='Enter a first step to try.';return;}
+   step.readOnly=true;
    deadline=Date.now()+20000; running=true; task.readOnly=true; smaller.disabled=true;
    res.classList.remove('on');res.textContent='';go.textContent='End session early';
    tick();tm=setInterval(tick,250);
