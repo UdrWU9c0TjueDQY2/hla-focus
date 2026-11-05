@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="referrer" content="no-referrer"><title>Check the posting receipt · FocusPass companion</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:clamp(14px,4vw,26px);background:#fcf7e9;color:#20282e;font:16px/1.48 system-ui,sans-serif}main{max-width:760px;margin:auto}h1{font:700 clamp(27px,5vw,40px)/1.05 Georgia,serif;margin:0 0 .3em}h2,p{margin:.4em 0}h2{font-size:20px}.tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:750}.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:.75em 0}.pair div{padding:12px;background:white;border:1px solid #9da6a0}.pair strong{display:block;font-size:13px}.actions{display:flex;gap:8px;flex-wrap:wrap}button{background:#163f3b;color:white;border:0;border-radius:4px;padding:10px 14px;font:650 16px/1.4 system-ui;min-height:44px;cursor:pointer}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #b6521d;outline-offset:3px}a{color:#164f46}footer{border-top:1px solid #9da6a0;margin-top:16px;padding-top:9px;font-size:13px}#feedback{padding:10px 12px;background:#e4efdb}#feedback:empty{display:none}[hidden]{display:none!important}@media(max-width:470px){.pair{grid-template-columns:1fr}}
+</style></head><body><main><h1>Check the posting receipt</h1><p>Compare the brief with the fictional confirmation. Decide whether the work is done or needs one correction.</p><noscript><p>Example: the brief says Thursday at 11 a.m. and the receipt says Friday at 11 a.m. Correct the day before leaving.</p></noscript>
+<section id="game" hidden><p class="tag" id="count"></p><h2 id="title" tabindex="-1"></h2><div class="pair"><div><strong>Brief</strong><p id="brief"></p></div><div><strong>Confirmation</strong><p id="receipt"></p></div></div><div class="actions" id="options"><button type="button" id="done">Done. Leave.</button><button type="button" id="fix">Correct one detail.</button></div><p id="feedback" tabindex="-1"></p><button type="button" id="next" hidden>Next receipt</button></section>
+<section id="complete" hidden><h2 id="result" tabindex="-1"></h2><p>For your next visit, name the one detail that would prove the job is done. Check it before opening another screen.</p><button type="button" id="replay">Play again</button></section><footer>Fictional browser exercise from Honest Little Apps. <a target="_blank" rel="noopener noreferrer" href="https://apps.apple.com/us/app/focuspass-app-blocker/id6795610975">Explore FocusPass on the App Store</a>.</footer></main>
+<script>
+'use strict';
+const cases=[
+ ['A workshop reminder','Schedule the workshop reminder on the studio account for Thursday at 11 a.m. Eastern.','Studio account · Workshop reminder · Friday, 11 a.m. Eastern',false,'The account and time match. The day needs to change from Friday to Thursday.'],
+ ['A reply to one reader','Send a reply to the reader who asked about pickup. Tell them the side entrance opens at noon.','Sent to the reader · “Pickup opens at the side entrance at noon.”',true,'The reply was sent to the intended reader and includes the requested information.'],
+ ['A prepared announcement','Publish the new class announcement on the studio account now.','Studio account · New class announcement · Saved to drafts',false,'The draft exists, but saving it did not publish the announcement. Check its final status.'],
+ ['A weekly metric','Record the studio newsletter link clicks for this week. Your note should say 18 clicks.','Studio newsletter · This week · Link clicks: 18 · Note saved: 18 clicks',true,'The metric, period and recorded number match. No additional screen is needed.']
+];
+const get=id=>document.getElementById(id);
+let index=0,correct=0,answered=false;
+function showCase(focus){
+ const [title,brief,receipt]=cases[index];answered=false;
+ get('count').textContent='Receipt '+(index+1)+' of '+cases.length;
+ get('title').textContent=title;get('brief').textContent=brief;get('receipt').textContent=receipt;
+ get('feedback').textContent='';get('options').hidden=false;get('next').hidden=true;
+ if(focus)get('title').focus();
+}
+function answer(done){
+ if(answered)return;answered=true;
+ const matched=done===cases[index][3];if(matched)correct++;
+ get('options').hidden=true;get('feedback').textContent=(matched?'Correct. ':'Look again. ')+cases[index][4];
+ get('next').textContent=index===cases.length-1?'See result':'Next receipt';get('next').hidden=false;get('feedback').focus();
+}
+get('done').addEventListener('click',()=>answer(true));get('fix').addEventListener('click',()=>answer(false));
+get('next').addEventListener('click',()=>{if(!answered)return;index++;
+ if(index<cases.length){showCase(true);return;}
+ get('game').hidden=true;get('complete').hidden=false;
+ get('result').textContent=correct+' of '+cases.length+' receipts checked correctly';get('result').focus();
+});
+get('replay').addEventListener('click',()=>{index=0;correct=0;get('complete').hidden=true;get('game').hidden=false;showCase(true)});
+get('game').hidden=false;showCase(false);
+</script></body></html>
