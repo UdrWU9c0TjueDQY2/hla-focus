@@ -1,0 +1,25 @@
+Time Debt: Screen Time | U.S. editor facts
+Honest Little Apps • Verified November 5, 2026
+
+Availability
+Time Debt: Screen Time is available to download on the U.S. App Store for iPhone and iPad. The download is free. Apple lists in-app purchases.
+https://apps.apple.com/us/app/time-debt-screen-time/id6792393696
+
+How borrowing works
+Time Debt uses Apple's Screen Time system to shield selected apps when an allowance runs out. A user can request extra minutes, see the effect on tomorrow’s allowance, then decide whether to confirm.
+
+Included at no charge
+One blocking plan, borrowing with automatic repayment, seven days of history and emergency access.
+
+Paid options
+Pro subscriptions add features such as multiple plans, custom schedules, multi-day repayment and longer reporting. Review the offer for the selected plan in the App Store. Terms and offer eligibility can change.
+
+A reproducible example
+Set tomorrow’s allowance to 60 minutes, the floor to 20, the daily borrowing cap to 30 and the request to 15. The calculator grants 15 extra minutes today and leaves 45 tomorrow. If today also started at 60, its total is 75. This one-day illustration assumes all 15 minutes are used and there is no earlier debt. The browser calculator only previews the arithmetic.
+https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/borrow-impact-planner/
+
+Source
+The U.S. product listing confirms the app name, availability and core versus Pro distinctions. Editors can view the official screenshots on the App Store listing.
+
+Publisher
+Honest Little Apps publishes Time Debt and this dated fact sheet. Availability and paid features were checked for the U.S. storefront.
