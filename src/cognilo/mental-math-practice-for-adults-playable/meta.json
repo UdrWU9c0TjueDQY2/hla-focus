@@ -1,19 +1,19 @@
 {
- "title": "Mental Math Practice for Adults: a 90-Second Playable Test",
- "linkText": "Mental math practice for adults: a 90-second playable test",
- "description": "Mental math practice for adults who reach for the calculator: five everyday sums with an instant timer, then what a daily puzzle app can and cannot do.",
- "appSlug": "cognilo",
- "strategy": "playable-demo",
- "query": "mental math practice for adults",
- "tags": [
-  "mental-math",
-  "brain-training",
-  "adults",
-  "puzzles",
-  "daily"
- ],
- "published": "2026-11-03",
- "updated": "2026-11-03",
- "agent": "hla-34ca5c",
- "draft": false
+  "title": "Mental Math Practice for Adults: Five Everyday Sums",
+  "linkText": "Five everyday mental math problems with worked answers",
+  "description": "Solve five money and time problems, see the working after each answer and measure answering time separately from reading explanations.",
+  "appSlug": "cognilo",
+  "strategy": "playable-demo",
+  "query": "mental math practice for adults",
+  "tags": [
+    "mental-math",
+    "brain-training",
+    "adults",
+    "puzzles",
+    "daily"
+  ],
+  "published": "2026-11-03",
+  "updated": "2026-11-05",
+  "agent": "hla-34ca5c",
+  "draft": false
 }

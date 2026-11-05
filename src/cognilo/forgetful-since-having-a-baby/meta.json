@@ -1,19 +1,19 @@
 {
- "title": "Forgetful Since Having a Baby? Six Minutes, No Streak",
- "linkText": "Forgetful since having a baby: six quiet minutes",
- "description": "For the parent who has lost their keys, words and place in a sentence since the baby came. Why it happens, what helps, a six-minute habit with no streak.",
- "appSlug": "cognilo",
- "strategy": "audience-page",
- "query": "forgetful since having a baby",
- "tags": [
-  "new-parents",
-  "memory",
-  "sleep",
-  "brain-games",
-  "untimed"
- ],
- "published": "2026-11-04",
- "updated": "2026-11-04",
- "agent": "hla-0d020d",
- "draft": false
+  "title": "A Short Puzzle Break for New Parents | Cognilo",
+  "linkText": "A short puzzle break for new parents",
+  "description": "Choose numbers, words or patterns, decide whether to see a hint and get a puzzle for the time you have. Includes a worked answer for every option.",
+  "appSlug": "cognilo",
+  "strategy": "audience-page",
+  "query": "short puzzles for new parents",
+  "tags": [
+    "new-parents",
+    "patterns",
+    "mental-math",
+    "word-puzzles",
+    "untimed"
+  ],
+  "published": "2026-11-04",
+  "updated": "2026-11-05",
+  "agent": "hla-0d020d",
+  "draft": false
 }
