@@ -85,8 +85,16 @@
     const anchor=String(input.anchor||'').trim().slice(0,120);
     const marker=input.workspace==='screen'?'Leave a short note beside your cursor or in the document.':'Put a small marker beside the line or row and write a note in the margin or on a separate slip.';
     const resume=steps[input.task][input.lost];
-    const depth={brief:'One-line cue: “I stopped at __. Next I will __.”',standard:'Three-line cue: “Last completed: __. Next action: __. Check the notification at: __.”',full:'Return checklist: mark your place; name the missing context, if any; write one next action; choose when to revisit the notification.'}[input.room];
     const urgent=input.priority==='now';
+    const depth={
+      brief:'One-line cue: “I stopped at __. Next I will __.”',
+      standard:urgent
+        ? 'Three-line cue for returning: “Last completed: __. Place to reopen: __. First action when I return: __.”'
+        : 'Three-line cue: “Last completed: __. Next action: __. Check the notification at: __.”',
+      full:urgent
+        ? 'Return checklist: when the responsibility is handled, reopen the marked place, read the last completed item, then take one next action.'
+        : 'Return checklist: mark your place; name the missing context, if any; write one next action; choose when to revisit the notification.'
+    }[input.room];
     const plan={
       title:urgent?'Leave a place to return to.':'Return to one concrete action.',
       intro:urgent?'Handle the time-sensitive responsibility first. Save a cue only if doing so will not delay anything urgent.':'You decided the notification can wait. Give it a checkpoint and return to one piece of the work.',
