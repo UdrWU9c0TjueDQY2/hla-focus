@@ -1,0 +1,19 @@
+TURN OR MIRROR?
+Each pair has two 4 by 4 grids. X = filled, . = blank. Each row is separated by |. Decide whether the shape turns or reflects about the centre of the whole grid. Name the angle or mirror line.
+
+Pair 1: XXXX | ..X. | ..X. | ....  becomes  XXXX | .X.. | .X.. | ....
+Pair 2: .XXX | .XXX | .... | ....  becomes  .... | ..XX | ..XX | ..XX
+Pair 3: XX.. | XX.. | X... | X...  becomes  X... | X... | XX.. | XX..
+Pair 4: .... | .XX. | XX.. | XX..  becomes  .... | .X.. | .XXX | ..XX
+Pair 5: .XX. | .XXX | .X.. | ....  becomes  .... | XXX. | XX.. | .X..
+Pair 6: XXX. | XXX. | .... | ....  becomes  .... | .... | .XXX | .XXX
+
+ANSWER KEY
+1. Mirror left to right. Row 1, column 1 moves to row 1, column 4.
+2. Turn: 90 degrees clockwise. Row 1, column 2 moves to row 2, column 4.
+3. Mirror top to bottom. Row 1, column 1 moves to row 4, column 1.
+4. Turn: 90 degrees counterclockwise. Row 2, column 2 moves to row 3, column 2.
+5. Mirror across the top-left diagonal. Row 1, column 2 moves to row 2, column 1.
+6. Turn: 180 degrees. Row 1, column 1 moves to row 4, column 4.
+
+Play the rotation lab: https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/rotation-match-lab/
