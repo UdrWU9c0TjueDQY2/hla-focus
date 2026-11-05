@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Hands-on time vs elapsed time | Now</title><meta name="description" content="Compare doing a second task while an unattended process runs with waiting for that process to finish first."><link rel="canonical" href="https://udrwu9c0tjuedqy2.github.io/hla-focus/now/task-dependency-sorter/wait-and-work.html">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf1f5;color:#243445;font:17px/1.55 system-ui,sans-serif}main{max-width:850px;padding:24px clamp(16px,4vw,48px) 54px;margin:auto}h1{font:700 clamp(2.6rem,8vw,4.4rem)/1.04 Georgia,serif;margin:1.6rem 0 .8rem;letter-spacing:-.045em}h2{font:700 1.5rem Georgia,serif;margin:.45rem 0 1rem}a{color:#244f78}.card{background:white;border:1px solid #c1cbd1;border-radius:10px;padding:clamp(16px,3vw,27px);margin:1.3rem 0}.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));gap:.8rem}label{display:block;font-weight:650}input{width:100%;display:block;font:inherit;min-height:44px;padding:.45rem;border:1px solid #6d8190;border-radius:5px;margin-top:.3rem}.result{font-size:1.2rem;font-weight:700}.min{font-size:.87rem}button,.store{font:650 1rem system-ui;background:#244d70;color:white;border:0;border-radius:5px;padding:.65rem 1rem;min-height:44px;cursor:pointer;display:inline-block;text-decoration:none;margin:.8rem 0}.times{padding-left:1.55rem}.times li{margin:.45rem 0}a:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid #cb712a;outline-offset:3px}</style></head>
+<body><main><a href="./">← Task dependency sorter</a><h1>How long until both tasks are done?</h1><p>A file export runs while you label folders. Labeling does not need the exported file, but the final check needs both. Compare that order with waiting for the export to finish before labeling.</p>
+<section class="card"><h2>Enter minutes for each part</h2><div class="rows">
+<label>Set up and start the export<input id="setup" type="number" value="3" min="0" max="1440" step="1"></label>
+<label>Export runs unattended<input id="wait" type="number" value="12" min="0" max="1440" step="1"></label>
+<label>Label folders independently<input id="work" type="number" value="8" min="0" max="1440" step="1"></label>
+<label>Final check after both finish<input id="finish" type="number" value="2" min="0" max="1440" step="1"></label></div>
+<button type="button" id="reset">Restore example</button></section>
+<section class="card" aria-live="polite"><h2 id="title">Your comparison</h2><p id="result" class="result"></p><p id="detail"></p><ol id="timeline" class="times"></ol></section>
+<h2>Where overlap is possible</h2><p>The second task can start once the export begins. Only use this model for a process that can run unattended and a task that requires no output from it. Measured times may differ, especially if both jobs compete for the same computer resources.</p>
+<h2>Choose the first action</h2><p>Use Now to break a task into a smaller starting step. This example stays in your browser and does not start a timer or log work in the app.</p><a class="store" href="https://apps.apple.com/us/app/now-adhd-task-starter/id6794488304">View Now on the App Store</a><p class="min">Published by Honest Little Apps.</p></main>
+<script>
+const el=id=>document.getElementById(id),fields=['setup','wait','work','finish'].map(el);
+function render(){
+ el('timeline').replaceChildren();
+ const [setup,wait,work,finish]=fields.map(f=>f.valueAsNumber);
+ if(fields.some(f=>!Number.isInteger(f.valueAsNumber)||f.valueAsNumber<0||f.valueAsNumber>1440)){
+  el('result').textContent='Use 0 to 1,440 whole minutes for each part.';el('detail').textContent='';return;
+ }
+ const workEnd=setup+work,exportEnd=setup+wait,checkStart=Math.max(workEnd,exportEnd),elapsed=checkStart+finish,alone=setup+wait+work+finish,hands=setup+work+finish;
+ el('result').textContent='Together: '+elapsed+' minutes elapsed. One after the other: '+alone+' minutes.';
+ el('detail').textContent='Your hands-on time is '+hands+' minutes either way. Overlap shortens the example by '+(alone-elapsed)+' minutes.';
+ const stages=[
+  'Minutes 0–'+setup+': start the export.',
+  'Minutes '+setup+'–'+exportEnd+': the export runs.',
+  'Minutes '+setup+'–'+workEnd+': label folders.',
+  'Minutes '+checkStart+'–'+elapsed+': check the finished export and labels.'
+ ];
+ stages.forEach(t=>{let li=document.createElement('li');li.textContent=t;el('timeline').append(li)});
+}
+fields.forEach(f=>f.addEventListener('input',render));el('reset').onclick=()=>{fields.forEach(f=>f.value=f.defaultValue);render();};render();
+</script></body></html>
