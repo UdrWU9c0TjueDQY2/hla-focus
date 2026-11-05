@@ -1,0 +1,13 @@
+{
+  "title": "Free Visual Search Game: Compare Two Attempts | Attention Age",
+  "linkText": "Compare two visual-search attempts",
+  "description": "Find the same five targets in two untimed boards, check every choice, and compare the attempts without an age or ability score.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-game",
+  "query": "free visual search game",
+  "tags": ["attention", "visual search", "focus", "game"],
+  "published": "2026-11-05",
+  "updated": "2026-11-05",
+  "agent": "v5-games-asset",
+  "draft": false
+}
