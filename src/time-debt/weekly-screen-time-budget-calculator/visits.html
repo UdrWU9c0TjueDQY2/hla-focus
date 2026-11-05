@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="referrer" content="no-referrer"><title>Fewer visits or shorter visits? · Time Debt companion</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f8f7ed;color:#183439;font:16px/1.45 system-ui,sans-serif;padding:clamp(14px,4vw,28px)}main{max-width:700px;margin:auto}h1{font:700 clamp(26px,5vw,38px)/1.08 Georgia,serif;margin:0}h2{font-size:19px;margin:.65em 0}p{margin:.5em 0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:14px;font-weight:650}input{display:block;font:inherit;font-size:17px;color:inherit;border:1px solid #647e7e;background:white;padding:8px;width:100%;border-radius:3px;min-height:44px}input:focus-visible,a:focus-visible{outline:3px solid #995a21;outline-offset:2px}.row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #bdc9bf;padding:6px 0}.row strong{white-space:nowrap}#total{background:#174b48;color:white;padding:10px}a{color:#164b46}footer{margin-top:14px;font-size:13px}@media(max-width:390px){.fields{gap:8px}}
+</style></head><body><main><h1>Fewer visits or shorter visits?</h1><p>Compare two ways to change one day’s recreational browsing. Choose one app or activity. Use your own visit estimates; a phone pickup can involve more than one activity.</p>
+<div class="fields">
+<label>Usual visits per day<input id="visits" type="number" min="1" max="1440" step="1" value="6"></label>
+<label>Minutes per visit<input id="length" type="number" min="1" max="1440" step="1" value="10"></label>
+<label>Visits to skip<input id="skip" type="number" min="0" max="1440" step="1" value="2"></label>
+<label>Minutes to cut per kept visit<input id="cut" type="number" min="0" max="1440" step="1" value="3"></label></div>
+<p id="error" role="status"></p><section id="result" aria-live="polite" aria-atomic="true"><h2>Minutes in each plan</h2><div id="rows"></div><p id="total"></p><p id="overlap"></p></section><noscript><p>Example: 6 visits × 10 minutes is 60 minutes. Skip 2 visits and shorten the remaining 4 to 7 minutes: 28 minutes remain, 32 fewer than the original plan.</p></noscript><footer>Estimates only. This tool does not read Screen Time or block apps. <a href="https://apps.apple.com/us/app/time-debt-screen-time/id6792393696" target="_blank" rel="noopener noreferrer">Explore Time Debt for iPhone</a>.</footer></main>
+<script>
+'use strict';
+const byId=id=>document.getElementById(id);
+const ids=['visits','length','skip','cut'];
+function calculate(){
+ const [visits,length,skip,cut]=ids.map(id=>byId(id).valueAsNumber);
+ let message='';
+ if(![visits,length,skip,cut].every(Number.isInteger))message='Enter whole numbers in all four fields.';
+ else if(visits<1||length<1||skip<0||cut<0||visits*length>1440)message='Choose a positive visit count and duration that fit within one day, and nonnegative reductions.';
+ else if(skip>visits||cut>length)message='Reductions cannot exceed the original visits or minutes per visit.';
+ byId('error').textContent=message;byId('result').hidden=Boolean(message);if(message)return;
+ const original=visits*length,fewer=(visits-skip)*length,shorter=visits*(length-cut),both=(visits-skip)*(length-cut);
+ const rows=byId('rows');rows.replaceChildren();
+ for(const [label,value] of [['Usual plan',original],['Skip visits only',fewer],['Shorten visits only',shorter],['Combine both changes',both]]){
+ const row=document.createElement('div');row.className='row';const name=document.createElement('span');name.textContent=label;
+ const amount=document.createElement('strong');amount.textContent=value+' min';row.append(name,amount);rows.append(row);}
+ byId('total').textContent=(visits-skip)+' kept × '+(length-cut)+' min = '+both+' minutes. That is '+(original-both)+' fewer planned minutes than usual.';
+ byId('overlap').textContent=skip*cut?'Adding the separate reductions would double-count '+(skip*cut)+' minutes. A skipped visit cannot also be shortened.':'The two reductions have no overlapping minutes in this example.';
+}
+ids.forEach(id=>byId(id).addEventListener('input',calculate));calculate();
+</script></body></html>
