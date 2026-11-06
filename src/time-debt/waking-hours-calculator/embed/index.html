@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waking-day phone-time calculator — Honest Little Apps</title>
+<meta name="description" content="A compact, browser-local screen-time comparison for voluntary publisher reuse.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/waking-hours-calculator/">
+<style>
+:root{color-scheme:dark;--bg:#10152d;--ink:#f6f4ff;--muted:#c9c9dd;--line:#626a90;--accent:#b9acff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:720px;padding:22px;margin:auto}h1{font-size:clamp(27px,5vw,36px);line-height:1.1;letter-spacing:-.04em;margin:8px 0 14px}p{margin:8px 0 16px}.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:750}.small{font-size:13px;color:var(--muted)}a{color:#d2c8ff;text-underline-offset:3px}button,input,select,textarea{font:inherit}input,select,textarea{color:var(--ink);background:#080e25;border:1px solid var(--line);border-radius:7px;max-width:100%}input,select{min-height:46px;width:100%;padding:8px}textarea{width:100%;padding:10px;font-size:13px;line-height:1.5;resize:vertical}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px}.fieldgroup{border:0;padding:0;margin:0;min-width:0}.fieldgroup legend{font-size:14px;font-weight:700;margin-bottom:6px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pair label{font-size:12px;color:var(--muted)}.reduction{grid-column:1/-1;font-size:14px;font-weight:700}.reduction select{display:block;margin-top:6px}.picture{display:flex;gap:18px;align-items:center;margin:20px 0}.dial{--share:25%;flex:0 0 104px;height:104px;border-radius:50%;background:conic-gradient(#a58bff var(--share),#343d65 0);display:grid;place-items:center}.dial-inner{background:var(--bg);width:78px;height:78px;border-radius:50%;display:grid;place-items:center}.dial strong{font-size:25px;letter-spacing:-.05em}.picture p{margin:0}.result{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--line);padding-top:16px;margin:12px 0 18px}.result p{margin:0;font-size:13px;color:var(--muted)}.result strong{display:block;font-size:27px;color:var(--accent);line-height:1.3}.manual label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.actions button{min-height:44px;padding:8px 12px;border:1px solid #8a91b6;border-radius:7px;color:var(--ink);background:#232b4c;cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}:focus-visible{outline:3px solid #e0efa9;outline-offset:3px}#error{color:#ffd0b1;min-height:20px;font-size:13px;margin-top:10px}#status{color:#daefb7;min-height:20px;font-size:13px}footer{border-top:1px solid var(--line);padding-top:14px;font-size:13px;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}footer a{min-height:32px;display:inline-flex;align-items:center}.skip{position:absolute;top:-80px;left:10px}.skip:focus{top:8px;background:white;color:black;padding:8px}@media(max-width:360px){main{padding:16px}.inputs{gap:12px}.picture{gap:12px}.dial{flex-basis:90px;height:90px}.dial-inner{width:68px;height:68px}.result{gap:12px}}@media print{body,input,select,textarea{background:white;color:black}.actions,footer,.skip{display:none}.small,.result p{color:#222}.result strong{color:#222}}
+</style>
+</head>
+<body>
+<a class="skip" href="#calcform">Skip to calculator</a>
+<main>
+<div class="eyebrow">A free tool by Honest Little Apps</div>
+<h1>Your phone time.<br>Your waking day.</h1>
+<p class="small">Enter phone use and sleep from the same 24 hours. The starting numbers are examples, not recommended limits.</p>
+<form id="calcform" novalidate>
+<div class="inputs">
+<fieldset class="fieldgroup"><legend>Phone time</legend><div class="pair"><label for="phoneH">Hours<input id="phoneH" type="number" min="0" max="24" step="1" value="4" inputmode="numeric"></label><label for="phoneM">Minutes<input id="phoneM" type="number" min="0" max="59" step="1" value="0" inputmode="numeric"></label></div></fieldset>
+<fieldset class="fieldgroup"><legend>Sleep</legend><div class="pair"><label for="sleepH">Hours<input id="sleepH" type="number" min="0" max="23" step="1" value="8" inputmode="numeric"></label><label for="sleepM">Minutes<input id="sleepM" type="number" min="0" max="59" step="1" value="0" inputmode="numeric"></label></div></fieldset>
+<label class="reduction" for="trim">Try less phone time per day<select id="trim"><option value="0">No change</option><option value="15">15 minutes less</option><option value="30" selected>30 minutes less</option><option value="60">60 minutes less</option></select></label>
+</div>
+<div id="error" role="alert"></div>
+<div class="picture"><div class="dial" id="dial" role="img" aria-label="25 percent of waking time on your phone"><div class="dial-inner"><strong id="share">25%</strong></div></div><div><p><strong>Of your waking day</strong></p><p class="small" id="dayline">4h on your phone · 16h awake</p></div></div>
+<div class="result" aria-live="polite"><p>With your chosen reduction<strong id="newshare">21.9%</strong><span id="newtime">3h 30m phone time per day</span></p><p>If repeated for seven days<strong id="weekgain">3h 30m</strong>less phone use across the week</p></div>
+<div class="manual"><label for="comparison">Your complete comparison</label><textarea id="comparison" rows="5" readonly aria-describedby="comparison-help"></textarea><p class="small" id="comparison-help">Select all to keep a personal copy. A scenario, not a prediction or a health score.</p></div>
+<div class="actions"><button type="button" id="copy">Copy comparison</button><button type="reset">Reset example</button></div>
+<div id="status" role="status"></div>
+</form>
+<p class="small">Share = phone minutes ÷ (1,440 − sleep minutes) × 100. Numbers stay in this page; it does not read device usage or sync with an app. Ordinary hosting logs may apply.</p>
+<noscript><p>The example is 240 ÷ 960 × 100 = 25%. Enable JavaScript to edit the calculation.</p></noscript>
+<footer><a href="https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/waking-hours-calculator/" target="_blank" rel="noopener noreferrer">Full guide &amp; assumptions</a><a href="https://apps.apple.com/app/id6792393696?ct=focus-waking-hours&mt=8" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin">Time Debt on the App Store</a></footer>
+</main>
+<script src="../calculator.js?v=20261106-embed" defer></script>
+</body>
+</html>
