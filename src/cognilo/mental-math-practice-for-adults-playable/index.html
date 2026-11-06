@@ -45,6 +45,8 @@ h1{font-size:clamp(30px,5.4vw,46px);max-width:18ch;text-shadow:0 0 30px rgba(242
 .fb{min-height:1.6em;font-size:15px;margin-top:8px}.fb.ok{color:var(--ok)}.fb.no{color:var(--no)}
 .demo .act{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.demo button{font:inherit;font-weight:600;background:var(--amber);color:#1a1200;border:0;border-radius:10px;padding:10px 16px;cursor:pointer}.demo button.ghost{background:none;border:1px solid var(--line);color:var(--mute)}
 .res{display:none;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}.res.on{display:block}.res .big{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}.res .big div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px}.res .big b{display:block;font-size:24px;color:var(--amber2);font-variant-numeric:tabular-nums}.res .big span{font-size:12px;color:var(--mute)}.res p{margin:10px 0 0;font-size:15px}
+.result-next{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.result-next h3{margin:0;font-size:19px}.result-store{display:inline-block;max-width:100%;min-height:44px;margin-top:12px;padding:10px 14px;border:1px solid var(--amber);border-radius:10px;font-weight:600;line-height:1.5;text-underline-offset:3px;overflow-wrap:anywhere}
+@media print{.result-next{display:none}}
 .tip{font-size:14px;color:var(--mute);margin:10px 0 0}
 details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}summary{cursor:pointer;font-weight:600}details p{margin:10px 0 0;color:#e6e0d6}
 .limits{margin:0;padding:0;list-style:none}.limits li{border-left:3px solid var(--amber);padding:2px 0 2px 14px;margin:10px 0}.limits b{display:block}.limits span{font-size:15px;color:var(--mute)}
@@ -82,7 +84,13 @@ details{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 <div class="sum"><div class="q" id="q"></div><div class="in"><span class="unit" id="unit">$</span><input id="ans" type="text" inputmode="decimal" autocomplete="off" aria-label="Your answer"></div><div class="fb" id="fb" role="status"></div></div>
 <div class="act"><button type="button" id="check">Check</button><button type="button" class="ghost" id="skip">Skip</button></div>
 <div class="act"><button type="button" id="next" hidden>Next sum</button></div>
-<div class="res" id="res"><div class="big"><div><b id="rt">—</b><span>right of 5</span></div><div id="time-result" hidden><b id="rs">—</b><span>seconds recorded after first typing in each sum</span></div></div><p id="rtext"></p><div class="act"><button type="button" id="again">Again, new order</button></div></div>
+<div class="res" id="res"><div class="big"><div><b id="rt">—</b><span>right of 5</span></div><div id="time-result" hidden><b id="rs">—</b><span>seconds recorded after first typing in each sum</span></div></div><p id="rtext"></p><div class="act"><button type="button" id="again">Again, new order</button></div>
+<section class="result-next" aria-labelledby="result-next-title">
+<h3 id="result-next-title">Try a different kind of puzzle next.</h3>
+<p>Cognilo’s free Daily 5 mixes memory, focus, logic, numbers, spatial and language puzzles. Start an untimed session on iPhone or iPad and see a strategy tip after each round.</p>
+<a class="result-store" href="https://apps.apple.com/us/app/cognilo-brain-training-games/id6808798253">Try Cognilo’s free Daily 5 on the App Store ↗</a>
+<p class="tip">Optional Pro adds Lab challenges and reports. This browser score stays here; it does not transfer to the app.</p>
+</section></div>
 </section>
 
 <p>For ongoing practice on iPhone, Cognilo includes Real Numbers alongside other puzzle types. Its free Daily 5 mixes puzzle categories. The browser drill above scores only the five answers you give here.</p>
