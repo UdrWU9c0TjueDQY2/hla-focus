@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {parse,compare,csvReport}=require('../src/time-debt/matched-week-screen-time/app.js');
+assert.equal(parse(''),null);assert.equal(parse('0'),0);for(const x of ['-1','1.5','1441','word'])assert.throws(()=>parse(x));
+const a=Array(7).fill(300),b=[240,240,240,null,null,null,null];
+assert.equal(compare(a,b).percent,-20);let csv=csvReport(a,b);assert(csv.includes('Thursday,300,,no,'));assert(csv.includes('Matched-day totals,900,720,,-180'));
+assert(csvReport([0,...Array(6).fill(null)],[10,...Array(6).fill(null)]).includes('undefined (Week A total is zero)'));
+assert.throws(()=>csvReport(Array(7).fill(null),Array(7).fill(0)));
+const els={};for(const id of ['result','error','calculate','example','reset','download','match','a-total','b-total','a-avg','b-avg','change','bar-a','bar-b',...Array.from({length:7},(_,i)=>['a'+i,'b'+i]).flat()])els[id]={id,value:'',style:{},events:{},addEventListener(e,f){this.events[e]=f},click(){this.events.click?.()}};
+let saved=[],lastBlob;const ctx={document:{getElementById:id=>els[id],querySelectorAll:()=>Object.values(els).filter(e=>/^[ab]\d$/.test(e.id)),createElement:()=>({click(){saved.push(lastBlob)},remove(){}}),body:{appendChild(){}}},Blob,URL:{createObjectURL(blob){lastBlob=blob;return 'blob:test'},revokeObjectURL(){}},setTimeout:f=>f()};
+vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../src/time-debt/matched-week-screen-time/app.js'),'utf8'),ctx);els.example.click();assert.equal(els.result.hidden,false);els.download.click();assert.equal(saved.length,1);els.a0.value='400';els.a0.events.input();assert.equal(els.result.hidden,true);els.download.click();assert.equal(saved.length,1);els.calculate.click();els.download.click();assert.equal(saved.length,2);els.reset.click();els.download.click();assert.equal(saved.length,2);els.a0.value='invalid';els.calculate.click();els.download.click();assert.equal(saved.length,2);
+Promise.all(saved.map(b=>b.text())).then(t=>{assert(t[0].includes('Matched-day totals,900,720,,-180'));assert(t[1].includes('Matched-day totals,1000,720,,-280'));console.log('PASS: parse, matched arithmetic, blank/zero CSV, zero baseline, empty refusal, export, edit invalidation, clear and invalid input');});
