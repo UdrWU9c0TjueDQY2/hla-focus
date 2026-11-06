@@ -1,7 +1,7 @@
 {
   "title": "Mental Math Practice for Adults: Five Everyday Sums",
   "linkText": "Five everyday mental math problems with worked answers",
-  "description": "Solve five money and time problems, see the working after each answer and measure answering time separately from reading explanations.",
+  "description": "Practise five everyday money and time problems, untimed by default. See each worked answer and optionally turn on a timer. No sign-up.",
   "appSlug": "cognilo",
   "strategy": "playable-demo",
   "query": "mental math practice for adults",
@@ -13,7 +13,7 @@
     "daily"
   ],
   "published": "2026-11-03",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "agent": "hla-34ca5c",
   "draft": false
 }

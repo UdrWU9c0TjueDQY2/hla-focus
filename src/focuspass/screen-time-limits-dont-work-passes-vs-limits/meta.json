@@ -1,19 +1,19 @@
 {
- "title": "Screen Time Limits Don\u2019t Work? Passes vs Limits vs Deleting",
- "linkText": "Screen Time limits don\u2019t work? Passes vs limits vs deleting",
- "description": "If iPhone Screen Time limits don\u2019t work because Ignore Limit is one tap away, compare four methods: limits, deleting, a held passcode, timed Passes.",
- "appSlug": "focuspass",
- "strategy": "method-vs-method",
- "query": "iphone screen time limits don\u2019t work",
- "tags": [
-  "app-blocker",
-  "screen-time",
-  "focus",
-  "doomscrolling",
-  "iphone"
- ],
- "published": "2026-11-03",
- "updated": "2026-11-05",
- "agent": "hla-34ca5c",
- "draft": false
+  "title": "Screen Time Limits Don’t Work? Passes vs Limits vs Deleting",
+  "linkText": "Screen Time limits don’t work? Passes vs limits vs deleting",
+  "description": "Compare iPhone Screen Time limits, deleting apps, Focus modes and timed Passes. See the controls, recovery limits and a real FocusPass walkthrough.",
+  "appSlug": "focuspass",
+  "strategy": "method-vs-method",
+  "query": "iphone screen time limits don’t work",
+  "tags": [
+    "app-blocker",
+    "screen-time",
+    "focus",
+    "doomscrolling",
+    "iphone"
+  ],
+  "published": "2026-11-03",
+  "updated": "2026-11-06",
+  "agent": "hla-34ca5c",
+  "draft": false
 }
