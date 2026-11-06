@@ -2,3 +2,5 @@
 
 
 :root{--ink:#303c67;--paper:#f6f3ed}.art,.app{background:#e6e2f1}.art{border-radius:6px;border:3px solid #303c67;box-shadow:10px 10px 0 #e6b75e}h1{font-weight:700}.boards{display:grid;grid-template-columns:1fr 1fr;gap:40px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;max-width:300px}.tile{aspect-ratio:1;min-height:44px;display:grid;place-items:center;background:#e7e8ed;border:2px solid #7d85a2;color:#303c67;padding:0;font-size:24px;border-radius:3px}.tile.on{background:#303c67;color:white}select{font-size:17px;padding:12px}@media(max-width:740px){.boards{grid-template-columns:1fr;gap:12px}.grid{max-width:280px}}
+
+.challenge-share{background:#f6f3ed;border:2px solid #303c67;border-radius:8px;padding:20px;margin-top:24px}.challenge-share h3{margin-top:0}.challenge-share label{display:block;margin:18px 0 8px}.challenge-share input{box-sizing:border-box;width:100%;font-size:14px;background:white;color:#303c67}.challenge-share button:disabled{opacity:.5;cursor:not-allowed}.challenge-share p{overflow-wrap:anywhere}@media(max-width:500px){.challenge-share{padding:16px}.challenge-share button{width:100%}}

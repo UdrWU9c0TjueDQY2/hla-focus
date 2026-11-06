@@ -8,7 +8,10 @@ function transform(pattern,mode){
     return column*4+3-row;
   }).sort((a,b)=>a-b);
 }
-if(typeof module!=='undefined')module.exports={patterns,transform};
+// Version 1 challenge IDs preserve these six source patterns and the three rule names.
+function readChallenge(hash){const m=/^#mg1=(mirror|vertical|rotate)-([1-6])$/.exec(hash);return m?{mode:m[1],index:Number(m[2])-1}:null;}
+function challengeLink(index,mode){if(!Number.isInteger(index)||index<0||index>=patterns.length||!['mirror','vertical','rotate'].includes(mode))throw new Error('Invalid challenge');return 'https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/mirror-grid-puzzle/#mg1='+mode+'-'+(index+1);}
+if(typeof module!=='undefined')module.exports={patterns,transform,readChallenge,challengeLink};
 if(typeof document!=='undefined'){
   const byId=id=>document.getElementById(id);
   let index=0,preview=false;
@@ -37,8 +40,9 @@ if(typeof document!=='undefined'){
       tile.setAttribute('aria-label','Row '+(Math.floor(i/4)+1)+', column '+(i%4+1)+': '+(on?'filled':'empty'));
       byId('source').append(tile);
     }
-    draw();
+    draw();updateShare();
   }
+  function updateShare(){byId('challenge-link').value=challengeLink(index,byId('mode').value);byId('copy-challenge').disabled=false;byId('share-status').textContent='';}
   for(let i=0;i<16;i++){
     const tile=document.createElement('button');tile.className='tile';tile.dataset.i=i;
     tile.setAttribute('aria-label','Row '+(Math.floor(i/4)+1)+', column '+(i%4+1));
@@ -62,5 +66,10 @@ if(typeof document!=='undefined'){
   });
   byId('next').addEventListener('click',()=>{index=(index+1)%patterns.length;load();});
   byId('clear').addEventListener('click',()=>{if(preview)return;chosen.clear();draw();byId('status').textContent='Answer cleared.';});
-  byId('mode').addEventListener('change',load);load();
+  byId('copy-challenge').addEventListener('click',async()=>{const link=challengeLink(index,byId('mode').value);try{if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(link);byId('share-status').textContent=link===byId('challenge-link').value?'Challenge link copied. Share it wherever it will be useful. No delivery is tracked.':'The previous challenge was copied. Copy again for the current pattern.';}catch(error){byId('challenge-link').focus();byId('challenge-link').select();byId('share-status').textContent='The current challenge link is selected. Copy it using your device menu.';}});
+  byId('mode').addEventListener('change',load);
+  const initial=readChallenge(window.location.hash);if(initial){index=initial.index;byId('mode').value=initial.mode;}load();
+  if(initial)byId('status').textContent='Shared challenge loaded. Build the answer; no solution or score was included.';
+  else if(window.location.hash.startsWith('#mg1='))byId('status').textContent='That challenge code is not recognized. Pattern 1 is ready to play.';
+  window.addEventListener('hashchange',()=>{const challenge=readChallenge(window.location.hash);if(challenge){index=challenge.index;byId('mode').value=challenge.mode;load();byId('status').textContent='Shared challenge loaded with a blank answer.';}else if(window.location.hash.startsWith('#mg1=')){byId('share-status').textContent='That challenge code is not recognized. The current attempt is unchanged.';}});
 }
