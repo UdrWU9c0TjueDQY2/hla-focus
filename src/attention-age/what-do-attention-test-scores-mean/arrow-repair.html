@@ -75,7 +75,7 @@
     icon.setAttribute('aria-hidden', 'true');
     const label = document.createElement('span');
     label.className = 'position';
-    label.textContent = position === 2 ? '3 · middle' : String(position + 1);
+    label.textContent = String(position + 1);
     label.setAttribute('aria-hidden', 'true');
     tile.append(icon, label);
     tile.onclick = () => choose(position);
