@@ -1,0 +1,14 @@
+{
+  "title": "Deduction Choice Lab",
+  "description": "27 original deduction questions about evidence, constraints and certainty. Nine families contain three cases each.",
+  "appSlug": "cognilo",
+  "strategy": "worked-scenario-quiz",
+  "query": "deduction quiz with explanations",
+  "tags": [
+    "worked examples",
+    "mini challenges",
+    "cognilo"
+  ],
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+}

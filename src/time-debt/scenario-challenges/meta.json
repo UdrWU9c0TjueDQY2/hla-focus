@@ -1,0 +1,14 @@
+{
+  "title": "Screen-Time Number Detective",
+  "description": "27 worked scenarios about durations, percentages, overlapping sessions and careful interpretation of screen-use records.",
+  "appSlug": "time-debt",
+  "strategy": "worked-scenario-quiz",
+  "query": "screen time math scenarios",
+  "tags": [
+    "worked examples",
+    "mini challenges",
+    "time-debt"
+  ],
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+}
