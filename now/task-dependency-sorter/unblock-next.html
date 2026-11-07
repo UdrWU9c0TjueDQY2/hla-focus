@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>What can move while a task is blocked? | Honest Little Apps</title>
+<meta name="description" content="A short decision helper for missing information, external replies and unclear starting actions. Keep a concrete next-action card.">
+<link rel="canonical" href="https://udrwu9c0tjuedqy2.github.io/hla-focus/now/task-dependency-sorter/unblock-next.html">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #f7f5ee; color: #22382f; font: 17px/1.5 system-ui,sans-serif; }
+main { max-width: 700px; margin: auto; padding: clamp(16px,4vw,28px); }
+h1 { font: 700 clamp(1.8rem,5vw,2.5rem)/1.13 Georgia,serif; margin: .2em 0 .45em; }
+h2 { font-size: 1.25rem; line-height: 1.3; }
+p { margin: .7em 0; }
+.small { font-size: .85rem; }
+.panel { border: 1px solid #9ba99e; background: white; padding: 18px; margin: 18px 0; border-radius: 10px; }
+.choices { display: grid; gap: 10px; }
+button { min-height: 46px; border: 1px solid #52695d; padding: 10px 14px; background: white; color: #22382f; font: 600 1rem/1.4 system-ui,sans-serif; border-radius: 5px; cursor: pointer; text-align: left; }
+.choices button:hover { background: #e6efe6; }
+button:disabled { opacity: .5; cursor: default; }
+.actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+.primary { background: #224e3b; color: white; }
+a { color: #204e3b; text-underline-offset: 3px; }
+button:focus-visible,a:focus-visible,h2:focus-visible { outline: 3px solid #a24519; outline-offset: 3px; }
+#next { font-weight: 650; }
+#record { border-left: 4px solid #9cab8b; padding-left: 14px; }
+li { margin-bottom: 6px; }
+[hidden] { display: none !important; }
+@media print { body { background: white; color: black; } main { padding: 0; } #questionPanel,.actions,.intro,.footer { display: none; } .panel { border: 0; padding: 0; } #record { border-color: black; } }
+</style>
+</head>
+<body>
+<main>
+<h1>What can move while a task is blocked?</h1>
+<p class="intro">Think of one unfinished task. Answer up to three questions to choose a next action or a clear waiting note.</p>
+<section class="panel" id="questionPanel" aria-labelledby="question">
+<h2 id="question" tabindex="-1"></h2>
+<p id="hint"></p>
+<div class="choices" id="choices"></div>
+</section>
+<section class="panel" id="result" aria-labelledby="resultTitle" hidden>
+<h2 id="resultTitle" tabindex="-1"></h2>
+<p id="next"></p>
+<p id="reason"></p>
+<p id="record"></p>
+<details><summary>Your choices</summary><ol id="trail"></ol></details>
+<div class="actions"><button id="download" class="primary">Download action card</button><button id="print">Print card</button></div>
+<p id="feedback" role="status" class="small"></p>
+</section>
+<div class="actions"><button id="back" hidden>Previous question</button><button id="restart" hidden>Start again</button></div>
+<p class="footer small">A separate web companion from Honest Little Apps. Choices stay in this tab. The downloaded card contains your selected answers. <a href="https://udrwu9c0tjuedqy2.github.io/hla-focus/now/task-dependency-sorter/" target="_blank" rel="noopener">Sort task dependencies</a> · <a href="https://apps.apple.com/us/app/now-adhd-task-starter/id6794488304" target="_blank" rel="noopener">Explore Now on iPhone</a></p>
+<noscript><p>Write what is missing, who or what can supply it, and when you will check again. If a separate action genuinely needs none of that input, choose one small step on it.</p></noscript>
+</main>
+<script>
+'use strict';
+const questions = {
+  start: {
+    title: 'What stops the very next action?',
+    hint: 'Choose the obstacle that actually prevents that action.',
+    options: [
+      ['A reply or decision from someone else', 'request'],
+      ['A file, item or fact I need to find', 'location'],
+      ['I cannot name a concrete first action', 'clarify'],
+      ['Nothing specific is missing', 'ready']
+    ]
+  },
+  request: {
+    title: 'Have you asked for the specific missing item?',
+    hint: 'A request names what you need. “Any update?” can leave that unclear.',
+    options: [
+      ['No, the request still needs to be made clear', 'ask'],
+      ['Yes, a clear request is already with them', 'parallel']
+    ]
+  },
+  location: {
+    title: 'Do you know one place to look?',
+    hint: 'Choose a specific folder, message, shelf or source.',
+    options: [
+      ['Yes, I have a likely place to check', 'find'],
+      ['No, I do not know where it is', 'locate']
+    ]
+  },
+  parallel: {
+    title: 'Is there a separate step that needs none of that input?',
+    hint: 'An unapproved decision or guessed fact still counts as missing.',
+    options: [
+      ['Yes, one independent step can move', 'independent'],
+      ['No, the remaining work needs the answer', 'wait']
+    ]
+  }
+};
+const outcomes = {
+  ask: ['Make the missing input explicit',
+    'Draft one request naming the exact item or decision needed and the action it unlocks. Review it before sending.',
+    'A concrete request gives the other person something specific to answer.',
+    'Request cue — “To finish [action], I need [item or decision]. Could you provide that, or let me know when it may be available?”'],
+  independent: ['Separate the waiting part from the working part',
+    'Write down the blocked part, then name one independent action you can take without assuming the answer.',
+    'For example, you can gather existing receipts while waiting for a missing invoice. A final total still needs that invoice.',
+    'Keep a note — Waiting for [specific input] from [person or team]. Check again [time you choose]. Meanwhile, start [independent action].'],
+  wait: ['Park it with a check-back cue',
+    'Record what you are waiting for and choose a time to review it. Then select a different task if one is available.',
+    'A waiting note preserves the next action for when the input arrives. Set any reminder in a tool you already use.',
+    'Keep a note — Waiting for [specific input] from [person or team]. Review [time you choose]. When it arrives, start [next action].'],
+  find: ['Check one specific place',
+    'Open that folder, message, shelf or source and look for the missing item. If it is absent, record that place as checked.',
+    'A named place turns the search into an observable action. You can choose the next place after checking it.',
+    'Search note — Need [item]. Check [one place]. If absent, ask [person or team] or choose another likely source.'],
+  locate: ['Find the route to the missing input',
+    'Identify one person, team or reliable source likely to know where the item is. Ask where to find it.',
+    'The next available action is locating the source. Filling the gap with a guess can leave the dependent task unfinished.',
+    'Request cue — “Where can I find [specific item] for [task]?”'],
+  clarify: ['Name a visible first action',
+    'Choose one verb and one object. For example, open the request, move one mug or read the first paragraph.',
+    'Keep the step small enough to recognise when it is done. If it reveals missing input, run this helper again.',
+    'Starter cue — Open [specific document] and read [one named section].'],
+  ready: ['Take one available step',
+    'Choose the smallest visible action you are willing to do now. You can stop and reassess after that step.',
+    'The answers you chose identify no specific missing prerequisite. That leaves you free to choose a starting action.',
+    'Starter cue — I will [one action] on [one object], then review what comes next.']
+};
+const el = id => document.getElementById(id);
+let current = 'start';
+let history = [];
+function show(moveFocus = true) {
+  const question = questions[current];
+  el('questionPanel').hidden = !question;
+  el('result').hidden = Boolean(question);
+  el('back').hidden = history.length === 0;
+  el('restart').hidden = history.length === 0;
+  el('feedback').textContent = '';
+  if (question) {
+    el('question').textContent = question.title;
+    el('hint').textContent = question.hint;
+    el('choices').replaceChildren();
+    question.options.forEach(([label, destination]) => {
+      const button = document.createElement('button');
+      button.textContent = label;
+      button.addEventListener('click', () => {
+        history.push({question: current, label});
+        current = destination;
+        show();
+      });
+      el('choices').append(button);
+    });
+    if (moveFocus) el('question').focus();
+    return;
+  }
+  const [title, next, reason, record] = outcomes[current];
+  el('resultTitle').textContent = title;
+  el('next').textContent = next;
+  el('reason').textContent = reason;
+  el('record').textContent = record;
+  el('trail').replaceChildren();
+  history.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.label;
+    el('trail').append(li);
+  });
+  if (moveFocus) el('resultTitle').focus();
+}
+el('back').addEventListener('click', () => {
+  if (history.length) { current = history.pop().question; show(); }
+});
+el('restart').addEventListener('click', () => { current = 'start'; history = []; show(); });
+el('print').addEventListener('click', () => window.print());
+function cardText() {
+  return ['MY NEXT ACTION', ...outcomes[current], 'My selected answers', ...history.map(item => item.label), 'Original planning companion by Honest Little Apps.'].join('\n\n');
+}
+el('download').addEventListener('click', () => {
+  const url = URL.createObjectURL(new Blob([cardText()], {type: 'text/plain;charset=utf-8'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'my-next-action.txt';
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  el('feedback').textContent = 'Your browser was asked to save my-next-action.txt.';
+});
+show(false);
+</script>
+</body>
+</html>

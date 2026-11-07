@@ -1,0 +1,701 @@
+[
+ {
+  "title": "Start, notice, compare | Honest Little Apps",
+  "description": "Six practical focus and game activities. Original exercises with copy and print controls.",
+  "appSlug": "portfolio",
+  "strategy": "independent-activity-collection",
+  "query": "start, notice, compare",
+  "tags": [
+   "original activity",
+   "printable",
+   "focus"
+  ],
+  "path": "/activities/practical-try-it-cards/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/activities/practical-try-it-cards/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Focus and Screen Time: Mini-Challenges with Worked Answers",
+  "description": "Choose a free challenge collection, compare answer choices and read the worked explanation. Original companion activities from Honest Little Apps.",
+  "appSlug": "resources",
+  "strategy": "challenge-collection-index",
+  "query": "focus and screen time practice questions",
+  "tags": [
+   "mini challenges"
+  ],
+  "path": "/activities/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/activities/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Careful Scan Choices",
+  "description": "27 original untimed scanning questions with clear rules and answers. These are entertainment, not a health or ability assessment.",
+  "appSlug": "attention-age",
+  "strategy": "worked-scenario-quiz",
+  "query": "untimed symbol quiz",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "attention-age"
+  ],
+  "path": "/attention-age/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Deduction Choice Lab",
+  "description": "27 original deduction questions about evidence, constraints and certainty. Nine families contain three cases each.",
+  "appSlug": "cognilo",
+  "strategy": "worked-scenario-quiz",
+  "query": "deduction quiz with explanations",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "cognilo"
+  ],
+  "path": "/cognilo/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "27 Focus Session Judgment Challenges",
+  "description": "Choose practical focus boundaries, intentional breaks and useful session reviews through fictional everyday scenarios.",
+  "appSlug": "focuspass",
+  "strategy": "worked-scenario-quiz",
+  "query": "focus session scenarios",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "focuspass"
+  ],
+  "path": "/focuspass/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "27 Task-Starting Decision Challenges",
+  "description": "Choose useful first actions for fictional writing, paperwork, planning and everyday tasks with clear explanations.",
+  "appSlug": "now",
+  "strategy": "worked-scenario-quiz",
+  "query": "task initiation scenarios",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "now"
+  ],
+  "path": "/now/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Short Reasoning Rounds",
+  "description": "27 independent pattern, recall and decision questions with explained answers. Nine families contain three cases each.",
+  "appSlug": "skillarena",
+  "strategy": "worked-scenario-quiz",
+  "query": "short reasoning quiz",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "skillarena"
+  ],
+  "path": "/skillarena/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Screen-Time Number Detective",
+  "description": "27 worked scenarios about durations, percentages, overlapping sessions and careful interpretation of screen-use records.",
+  "appSlug": "time-debt",
+  "strategy": "worked-scenario-quiz",
+  "query": "screen time math scenarios",
+  "tags": [
+   "worked examples",
+   "mini challenges",
+   "time-debt"
+  ],
+  "path": "/time-debt/scenario-challenges/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/scenario-challenges/",
+  "published": "2026-11-06",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Free Visual Search Game: Compare Two Attempts | Attention Age",
+  "description": "Find the same five targets in two untimed boards, check every choice, and compare the attempts without an age or ability score.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-game",
+  "query": "free visual search game",
+  "tags": [
+   "attention",
+   "visual search",
+   "focus",
+   "game"
+  ],
+  "path": "/attention-age/two-pass-visual-search/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/two-pass-visual-search/",
+  "published": "2026-11-05",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Visual Search Practice: Compare Two Equal-Difficulty Attempts",
+  "description": "Find five odd shapes twice and compare elapsed time and misses without an age score, diagnosis or account.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-game",
+  "query": "visual search practice game compare attempts",
+  "tags": [
+   "attention",
+   "visual-search",
+   "practice",
+   "game"
+  ],
+  "path": "/attention-age/visual-search-comparison/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/visual-search-comparison/",
+  "published": "2026-11-05",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Spot the Change: Six-Object Memory Tray",
+  "description": "Study six objects and identify replacements, swaps or unchanged trays in four untimed rounds. Review the exact positions and compare your selection.",
+  "appSlug": "cognilo",
+  "strategy": "interactive-exercise",
+  "query": "spot the change memory game",
+  "tags": [
+   "memory games",
+   "puzzle",
+   "practice"
+  ],
+  "path": "/cognilo/change-tray/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/change-tray/",
+  "published": "2026-11-05",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Why Does My Focus Test Score Change? | Attention Age",
+  "description": "Five score-comparison checks and a copyable preparation checklist. An Attention Age companion.",
+  "appSlug": "attention-age",
+  "strategy": "fact-roundup",
+  "query": "why does my focus test score change",
+  "tags": [
+   "attention",
+   "scores",
+   "practice"
+  ],
+  "path": "/attention-age/focus-test-score-changes/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/focus-test-score-changes/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "How to Refocus After a Notification | Return Signal",
+  "description": "Build and copy a practical return-to-task plan for reading, writing, numbers or planning. An original Attention Age web companion.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-worksheet",
+  "query": "how to refocus after a notification",
+  "tags": [
+   "attention",
+   "notifications",
+   "focus",
+   "worksheet"
+  ],
+  "path": "/attention-age/refocus-after-notification/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/refocus-after-notification/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Short Text Difference Checker: Find Changed Letters, Spaces and Numbers",
+  "description": "Compare two short texts locally. Highlight inserted and removed characters, including spaces and line breaks. Free proofreading helper with a worked example.",
+  "appSlug": "attention-age",
+  "strategy": "interactive-tool",
+  "query": "short text difference checker",
+  "tags": [],
+  "path": "/attention-age/short-text-difference-checker/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/short-text-difference-checker/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "What Do Attention Test Scores Mean? A Plain Glossary",
+  "description": "Attention-test terms explained, with a descriptive reaction-time spread calculator. See the mean, sample SD and CV without a clinical or app score.",
+  "appSlug": "attention-age",
+  "strategy": "glossary",
+  "query": "what do attention test scores mean",
+  "tags": [
+   "attention",
+   "focus-test",
+   "glossary",
+   "reaction-time"
+  ],
+  "path": "/attention-age/what-do-attention-test-scores-mean/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/what-do-attention-test-scores-mean/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "A Short Puzzle Break for New Parents | Cognilo",
+  "description": "Choose numbers, words or patterns, decide whether to see a hint and get a puzzle for the time you have. Includes a worked answer for every option.",
+  "appSlug": "cognilo",
+  "strategy": "audience-page",
+  "query": "short puzzles for new parents",
+  "tags": [
+   "new-parents",
+   "patterns",
+   "mental-math",
+   "word-puzzles",
+   "untimed"
+  ],
+  "path": "/cognilo/forgetful-since-having-a-baby/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/forgetful-since-having-a-baby/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Number Sequence Practice: Find a Rule and Check Two More Terms",
+  "description": "Try six untimed number-pattern puzzles. Choose among stated rules, check every step and reveal the next two terms with an explanation.",
+  "appSlug": "cognilo",
+  "strategy": "interactive tool with specific search intent and verified feature bridge",
+  "query": "Number Sequence Practice: Find a Rule and Check Two More Terms",
+  "tags": [
+   "cognilo",
+   "sequence",
+   "free tool"
+  ],
+  "path": "/cognilo/number-sequence-rule-lab/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/number-sequence-rule-lab/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Rotation Matching Game: Six Free Shape Puzzles",
+  "description": "Find the rotated twin among a mirror image and a different shape. Play six untimed puzzles, turn the target and reveal explanations without a score.",
+  "appSlug": "cognilo",
+  "strategy": "playable-demo",
+  "query": "rotation matching game",
+  "tags": [
+   "spatial-puzzles",
+   "rotation",
+   "brain-games"
+  ],
+  "path": "/cognilo/rotation-match-lab/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/rotation-match-lab/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "App Blocker for ADHD Adults: Your First 7 Days, in a Chat",
+  "description": "A seven-day checklist for adults who want to shield selected apps on iPhone, keep essential tools available and compare free features with FocusPass Pro.",
+  "appSlug": "focuspass",
+  "strategy": "first-week-guide",
+  "query": "app blocker for adhd adults",
+  "tags": [
+   "adhd",
+   "app-blocker",
+   "first-week",
+   "focus",
+   "screen-time"
+  ],
+  "path": "/focuspass/app-blocker-for-adhd-adults/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/app-blocker-for-adhd-adults/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Essential Apps Checklist Before a Focus Session",
+  "description": "Review sign-in, communication, travel and task access before blocking distractions.",
+  "appSlug": "focuspass",
+  "strategy": "practical-checklist",
+  "query": "essential apps before focus session app blocker checklist",
+  "tags": [
+   "focus",
+   "planning",
+   "access"
+  ],
+  "path": "/focuspass/essential-apps-checklist/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/essential-apps-checklist/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "No Phone After 9pm Challenge: 7 Nights and a Tracker",
+  "description": "A seven-night no-phone-after-9pm challenge with a progress ring, a printable tracker and one rule a night. For the person who scrolls in bed and knows it.",
+  "appSlug": "focuspass",
+  "strategy": "challenge-plan",
+  "query": "no phone after 9pm challenge",
+  "tags": [
+   "challenge",
+   "sleep",
+   "screen-time",
+   "evening",
+   "app-blocker"
+  ],
+  "path": "/focuspass/no-phone-after-9pm-challenge/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/no-phone-after-9pm-challenge/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Phone Check Pattern Finder: Spot Your Busiest Hour",
+  "description": "Turn a one-day phone-check log into an hourly chart and a busiest 60-minute window. Find a specific moment to try an app-blocking rule.",
+  "appSlug": "focuspass",
+  "strategy": "interactive-tool",
+  "query": "phone check log pattern finder busiest hour",
+  "tags": [
+   "phone habits",
+   "app blocker",
+   "screen time"
+  ],
+  "path": "/focuspass/phone-check-pattern-finder/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/phone-check-pattern-finder/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Post and Leave: Social Media Checklist for Creators",
+  "description": "Build a one-task publishing, reply or metric-check session with a clear exit. Copy or print your checklist.",
+  "appSlug": "focuspass",
+  "strategy": "interactive-checklist",
+  "query": "social media posting checklist avoid scrolling creators",
+  "tags": [
+   "creators",
+   "social-media",
+   "focus",
+   "checklist"
+  ],
+  "path": "/focuspass/post-and-leave/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/post-and-leave/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Study Break Schedule Builder: Fit Focus Blocks into Your Time",
+  "description": "Build a study schedule that fits your available minutes. Compare focus and break lengths, see a visual block timeline, and choose a concrete return cue.",
+  "appSlug": "focuspass",
+  "strategy": "useful interactive tool with worked example and contextual app conversion",
+  "query": "Study Break Schedule Builder: Fit Focus Blocks into Your Time",
+  "tags": [
+   "focuspass",
+   "study",
+   "interactive tool"
+  ],
+  "path": "/focuspass/study-break-schedule-builder/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/study-break-schedule-builder/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "ADHD Mom Can't Start Cleaning? Find Your Kind of Stuck",
+  "description": "A five-question quiz for the mom with ADHD staring at a messy house. It names your kind of stuck and gives one two-minute first step for one room.",
+  "appSlug": "now",
+  "strategy": "quiz-funnel",
+  "query": "adhd mom can't start cleaning",
+  "tags": [
+   "adhd",
+   "parents",
+   "cleaning",
+   "quiz",
+   "task-initiation"
+  ],
+  "path": "/now/adhd-mom-cant-start-cleaning/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/adhd-mom-cant-start-cleaning/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Definition of Done for Personal Tasks",
+  "description": "Give one task a visible finish line, a scope boundary and a first action. Editable card with four worked examples.",
+  "appSlug": "now",
+  "strategy": "practical-worksheet",
+  "query": "definition of done personal tasks stopping rules",
+  "tags": [
+   "tasks",
+   "planning",
+   "focus"
+  ],
+  "path": "/now/definition-of-done/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/definition-of-done/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Task Dependency Sorter: Find What You Can Start First",
+  "description": "Sort four tasks by their prerequisites. Find a valid starting order, spot circular dependencies, and choose a small first action.",
+  "appSlug": "now",
+  "strategy": "interactive-tool",
+  "query": "task dependency sorter what to do first",
+  "tags": [
+   "task-planning",
+   "dependencies",
+   "starting"
+  ],
+  "path": "/now/task-dependency-sorter/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/task-dependency-sorter/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Task Time Estimate Calculator: Compare Planned and Actual Minutes",
+  "description": "Compare three task estimates with actual time. See the ratios, a visual comparison and a transparent planning example using your own observations.",
+  "appSlug": "now",
+  "strategy": "interactive-calculator",
+  "query": "task time estimate calculator",
+  "tags": [
+   "time-estimates",
+   "planning",
+   "task-timing"
+  ],
+  "path": "/now/task-time-estimate-calculator/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/task-time-estimate-calculator/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Estimate Then Count: Free Dot Estimation Practice",
+  "description": "Estimate six dot fields, reveal the exact count, and regroup the dots into tens. Untimed visual number practice with a clear round-by-round recap.",
+  "appSlug": "skillarena",
+  "strategy": "interactive-tool",
+  "query": "free dot estimation practice estimate and count",
+  "tags": [
+   "estimation",
+   "number sense",
+   "practice"
+  ],
+  "path": "/skillarena/estimate-then-count/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/estimate-then-count/",
+  "published": "2026-11-04",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Free Brain Games for Kids Without Ads: A Parent Guide",
+  "description": "What to check before handing a tween a brain-game app: ads, accounts, timers, what scores mean. A parent guide to SkillArena with a 20-second game to try.",
+  "appSlug": "skillarena",
+  "strategy": "parent-guide",
+  "query": "free brain games for kids without ads",
+  "tags": [
+   "parents",
+   "kids",
+   "brain-games",
+   "screen-time"
+  ],
+  "path": "/skillarena/free-brain-games-for-kids-without-ads/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/free-brain-games-for-kids-without-ads/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Mirror Grid Puzzle: Reflect or Rotate a 4 by 4 Pattern",
+  "description": "Reflect or rotate six four-by-four patterns, inspect a solution without losing your attempt, and share a spoiler-free link to the same browser challenge.",
+  "appSlug": "skillarena",
+  "strategy": "interactive-tool",
+  "query": "mirror grid puzzle",
+  "tags": [],
+  "path": "/skillarena/mirror-grid-puzzle/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/mirror-grid-puzzle/",
+  "published": "2026-11-04",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Rule Switching Game: Same Cards, New Rule | SkillArena",
+  "description": "Six fixed cards, six changing rules, and an explanation for every decision. An original SkillArena web companion.",
+  "appSlug": "skillarena",
+  "strategy": "interactive-game",
+  "query": "rule switching game",
+  "tags": [
+   "instructions",
+   "logic",
+   "game",
+   "untimed"
+  ],
+  "path": "/skillarena/rule-switching-game/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/rule-switching-game/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Screen Time Borrowing Calculator: See Tomorrow’s Tradeoff",
+  "description": "Preview a simple screen-time borrowing tradeoff. Set an allowance, minimum floor and borrowing cap; see extra time today and what remains tomorrow.",
+  "appSlug": "time-debt",
+  "strategy": "interactive-tool",
+  "query": "screen time borrowing calculator tomorrow allowance",
+  "tags": [
+   "screen-time",
+   "borrowing",
+   "planning"
+  ],
+  "path": "/time-debt/borrow-impact-planner/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/borrow-impact-planner/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "iPhone Screen Time vs App Blocker: Which Actually Holds?",
+  "description": "Built-in Screen Time limits, a hard app blocker, or borrowing time from tomorrow: a side-by-side, a three-tap quiz, and where each one breaks at 11 pm.",
+  "appSlug": "time-debt",
+  "strategy": "method-vs-method",
+  "query": "iphone screen time vs app blocker",
+  "tags": [
+   "screen-time",
+   "app-blocker",
+   "focus",
+   "bedtime"
+  ],
+  "path": "/time-debt/iphone-screen-time-vs-app-blocker/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/iphone-screen-time-vs-app-blocker/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Compare Two Screen Time Weeks Without the Partial-Week Trap",
+  "description": "Compare screen-time minutes on matching weekdays, then download the entries and arithmetic as a CSV. Missing days stay blank; recorded zeros count.",
+  "appSlug": "time-debt",
+  "strategy": "interactive-tool",
+  "query": "compare screen time weeks daily average partial week",
+  "tags": [],
+  "path": "/time-debt/matched-week-screen-time/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/matched-week-screen-time/",
+  "published": "2026-11-04",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Screen Time Percentage of Waking Hours Calculator",
+  "description": "Calculate your phone use as a percentage of waking hours and compare a smaller daily target. Free, private-by-default planning calculator.",
+  "appSlug": "time-debt",
+  "strategy": "free-tool",
+  "query": "screen time percentage of waking hours",
+  "tags": [
+   "screen-time",
+   "calculator",
+   "daily-planning"
+  ],
+  "path": "/time-debt/waking-hours-calculator/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/waking-hours-calculator/",
+  "published": "2026-11-04",
+  "updated": "2026-11-04"
+ },
+ {
+  "title": "Weekly Screen Time Budget Calculator: Weekday and Weekend Limits",
+  "description": "Turn weekday and weekend screen-time limits into a weekly total. Compare two plans, see the difference in hours and minutes, and keep the assumptions visible.",
+  "appSlug": "time-debt",
+  "strategy": "interactive tool with specific search intent and verified feature bridge",
+  "query": "Weekly Screen Time Budget Calculator: Weekday and Weekend Limits",
+  "tags": [
+   "time-debt",
+   "budget",
+   "free tool"
+  ],
+  "path": "/time-debt/weekly-screen-time-budget-calculator/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/weekly-screen-time-budget-calculator/",
+  "published": "2026-11-04",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Test Your Attention Span at Home (Shift Workers' Guide)",
+  "description": "Test your attention span at home when you work nights or sleep badly: a sleep-debt check, what a 5-minute attention test can tell you, and when to re-test.",
+  "appSlug": "attention-age",
+  "strategy": "audience-page",
+  "query": "test your attention span at home",
+  "tags": [
+   "attention",
+   "sleep",
+   "shift-work",
+   "focus-test"
+  ],
+  "path": "/attention-age/test-attention-span-at-home-shift-workers/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/test-attention-span-at-home-shift-workers/",
+  "published": "2026-11-03",
+  "updated": "2026-11-03"
+ },
+ {
+  "title": "Mental Math Practice for Adults: Five Everyday Sums",
+  "description": "Practise five everyday money and time problems, untimed by default. See each worked answer and optionally turn on a timer. No sign-up.",
+  "appSlug": "cognilo",
+  "strategy": "playable-demo",
+  "query": "mental math practice for adults",
+  "tags": [
+   "mental-math",
+   "brain-training",
+   "adults",
+   "puzzles",
+   "daily"
+  ],
+  "path": "/cognilo/mental-math-practice-for-adults-playable/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/cognilo/mental-math-practice-for-adults-playable/",
+  "published": "2026-11-03",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Screen Time Limits Don’t Work? Passes vs Limits vs Deleting",
+  "description": "Compare iPhone Screen Time limits, deleting apps, Focus modes and timed Passes. See the controls, recovery limits and a real FocusPass walkthrough.",
+  "appSlug": "focuspass",
+  "strategy": "method-vs-method",
+  "query": "iphone screen time limits don’t work",
+  "tags": [
+   "app-blocker",
+   "screen-time",
+   "focus",
+   "doomscrolling",
+   "iphone"
+  ],
+  "path": "/focuspass/screen-time-limits-dont-work-passes-vs-limits/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/focuspass/screen-time-limits-dont-work-passes-vs-limits/",
+  "published": "2026-11-03",
+  "updated": "2026-11-06"
+ },
+ {
+  "title": "Why Can’t I Start Tasks? Pomodoro vs Two-Minute Starts",
+  "description": "Try a 20-second first step in your browser, compare it with a longer focus session, and watch how Now breaks a task down on iPhone.",
+  "appSlug": "now",
+  "strategy": "myth-vs-fact",
+  "query": "why can’t i start tasks",
+  "tags": [
+   "adhd",
+   "task-initiation",
+   "pomodoro",
+   "two-minute-rule",
+   "productivity"
+  ],
+  "path": "/now/why-cant-i-start-tasks-pomodoro-vs-two-minute/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/now/why-cant-i-start-tasks-pomodoro-vs-two-minute/",
+  "published": "2026-11-03",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "Go/No-Go Browser Activity: 24 Signals",
+  "description": "Try 24 go/no-go signals with descriptive counts and approximate browser response times. An original game companion with no clinical interpretation.",
+  "appSlug": "skillarena",
+  "strategy": "interactive",
+  "query": "go no go browser activity",
+  "tags": [
+   "focus",
+   "attention",
+   "reaction-time",
+   "free-tool"
+  ],
+  "path": "/skillarena/free-focus-test-go-no-go-winter-slump/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/free-focus-test-go-no-go-winter-slump/",
+  "published": "2026-11-03",
+  "updated": "2026-11-05"
+ },
+ {
+  "title": "How to Stop Ignoring Your Screen Time Limit (6 Steps)",
+  "description": "How to stop ignoring your screen time limit: replace \"Ignore Limit for Today\" with a 10-minute loan you repay tomorrow. Six steps with real screens.",
+  "appSlug": "time-debt",
+  "strategy": "visual-step-guide",
+  "query": "how to stop ignoring your screen time limit",
+  "tags": [
+   "screen-time",
+   "app-blocker",
+   "focus",
+   "habits"
+  ],
+  "path": "/time-debt/stop-ignoring-screen-time-limit/",
+  "url": "https://udrwu9c0tjuedqy2.github.io/hla-focus/time-debt/stop-ignoring-screen-time-limit/",
+  "published": "2026-11-03",
+  "updated": "2026-11-03"
+ }
+]

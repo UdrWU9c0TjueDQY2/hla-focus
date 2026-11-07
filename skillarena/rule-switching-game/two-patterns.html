@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Two Patterns in One Sequence | SkillArena practice</title><meta name="description" content="Solve six alternating number patterns. Split odd and even positions, find the missing number and check both rules."><link rel="canonical" href="https://udrwu9c0tjuedqy2.github.io/hla-focus/skillarena/rule-switching-game/two-patterns.html">
+<style>
+*{box-sizing:border-box}body{margin:0;color:#142535;background:#f5f3ed;font:1rem/1.55 system-ui,sans-serif}main{max-width:54rem;margin:auto;padding:1.4rem clamp(1rem,4vw,2.5rem) 4rem}a{color:#23526b;text-underline-offset:.2em}header{padding:2rem 0 1rem}h1{font:700 clamp(2.3rem,7vw,4.3rem)/1.03 Georgia,serif;letter-spacing:-.045em;margin:.4rem 0 1rem}h2{font-size:1.3rem}p{max-width:44rem}.game{background:#142535;color:#fff;border-radius:1.1rem;padding:clamp(1rem,4vw,2rem)}.game h2{margin:0 0 .7rem}.sequence{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:.35rem;list-style:none;padding:0;margin:1.2rem 0}.sequence li{background:#263b4a;text-align:center;padding:.3rem 0;border-radius:.45rem}.sequence small{display:block;color:#becddb}.sequence strong{font-size:clamp(1rem,3.5vw,1.65rem)}.sequence li.missing{outline:2px solid #fbcc71;color:#fbcc71}.controls{display:flex;align-items:end;gap:.6rem;flex-wrap:wrap}label{display:block;font-weight:650}input,button{font:inherit;border-radius:.4rem;min-height:44px}input{display:block;width:8rem;padding:.4rem .6rem;margin-top:.3rem;border:1px solid #95b3c1}button{padding:.45rem .85rem;border:0;background:#ffe1a1;color:#192733;cursor:pointer;font-weight:650}.secondary{background:#e7edee}button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #fa872b;outline-offset:4px}.game details{margin:1rem 0}.game summary{cursor:pointer;min-height:44px;line-height:44px}.lanes p{margin:.4rem 0}.feedback{min-height:1.6em}.actions{display:flex;gap:.8rem;flex-wrap:wrap}footer{padding-top:1.5rem}.store{display:inline-block;background:#23526b;color:white;text-decoration:none;padding:.7rem 1rem;border-radius:.45rem;font-weight:700}[hidden]{display:none!important}@media(max-width:470px){.sequence{grid-template-columns:repeat(4,minmax(0,1fr))}.sequence li{padding:.25rem 0}}
+</style></head><body><main><a href="./">← Back to the rule-switching game</a><header><h1>Two patterns in one sequence</h1><p>Read positions 1, 3, 5 and 7 as one number pattern. Read positions 2, 4, 6 and 8 as another. Each pattern adds or subtracts the same amount each time. Find the missing number.</p></header>
+<section class="game" aria-labelledby="round"><h2 id="round" tabindex="-1"></h2><ol id="sequence" class="sequence"></ol><form id="answer-form"><div class="controls"><label for="answer">Missing number<input id="answer" type="number" step="1" required></label><button id="check">Check answer</button></div></form><details id="hint"><summary>Separate the two patterns</summary><div class="lanes" id="lanes"></div></details><p id="message" class="feedback" role="status"></p><div class="actions"><button id="next" hidden type="button">Next puzzle</button><button id="reveal" class="secondary" type="button">Show solution</button></div></section>
+<footer><h2>Play more reasoning games on iPhone</h2><p>This six-puzzle browser exercise stands on its own. SkillArena’s Daily Arena combines numbers, memory and reasoning in short rounds.</p><a class="store" href="https://apps.apple.com/us/app/skillarena-focus-training/id6795713307">Explore SkillArena on the App Store</a><p><small>Published by Honest Little Apps. Answers stay on this page.</small></p></footer><noscript>Enable JavaScript to play. Try this example on paper: 2, 20, 5, 18, 8, 16, ?, 14. The odd positions add 3, so the missing number is 11.</noscript></main>
+<script>
+const rounds = [
+  {odd:3, even:24, oddStep:4, evenStep:-3, missing:6},
+  {odd:28, even:2, oddStep:-5, evenStep:6, missing:7},
+  {odd:-4, even:19, oddStep:3, evenStep:-4, missing:4},
+  {odd:16, even:1, oddStep:0, evenStep:5, missing:3},
+  {odd:2, even:0, oddStep:-4, evenStep:3, missing:2},
+  {odd:6, even:30, oddStep:7, evenStep:-6, missing:5}
+];
+const el = id => document.getElementById(id);
+let roundIndex=0, solved=0;
+function values(r){return Array.from({length:8},(_,i)=> (i%2 ? r.even : r.odd) + Math.floor(i/2)*(i%2 ? r.evenStep : r.oddStep));}
+function change(step){return step===0?'stay the same':step>0?'add '+step:'subtract '+Math.abs(step);}
+function draw(){
+ const r=rounds[roundIndex], numbers=values(r);
+ el('round').textContent='Puzzle '+(roundIndex+1)+' of '+rounds.length;
+ el('sequence').replaceChildren(); el('lanes').replaceChildren();
+ numbers.forEach((number,i)=>{
+   const cell=document.createElement('li'), pos=document.createElement('small'), value=document.createElement('strong');
+   pos.textContent=String(i+1); value.textContent=i===r.missing?'?':String(number);
+   cell.setAttribute('aria-label','Position '+(i+1)+': '+(i===r.missing?'missing':number));
+   if(i===r.missing)cell.className='missing';cell.append(pos,value);el('sequence').append(cell);
+ });
+ for(let lane=0;lane<2;lane++){
+   const line=document.createElement('p');
+   line.textContent=(lane===0?'Odd positions: ':'Even positions: ')+numbers.map((n,i)=>i===r.missing?'?':n).filter((_,i)=>i%2===lane).join(' → ');
+   el('lanes').append(line);
+ }
+ el('hint').open=false;el('answer').value='';el('answer').disabled=false;el('check').disabled=false;
+ el('message').textContent='';el('next').hidden=true;el('reveal').hidden=false;
+ el('next').textContent=roundIndex===rounds.length-1?'Finish practice':'Next puzzle';
+}
+function finishRound(correct){
+ const r=rounds[roundIndex], answer=values(r)[r.missing];
+ if(correct)solved++;
+ el('sequence').children[r.missing].querySelector('strong').textContent=String(answer);
+ el('sequence').children[r.missing].setAttribute('aria-label','Position '+(r.missing+1)+': '+answer);
+ el('message').textContent=(correct?'Correct. ':'Solution shown. ')+'Position '+(r.missing+1)+' is '+answer+'. Odd positions '+change(r.oddStep)+'; even positions '+change(r.evenStep)+'.';
+ el('answer').disabled=true;el('check').disabled=true;el('reveal').hidden=true;el('next').hidden=false;el('next').focus();
+}
+el('answer-form').addEventListener('submit',event=>{
+ event.preventDefault();if(el('answer').disabled)return;
+ const r=rounds[roundIndex];
+ if(el('answer').valueAsNumber===values(r)[r.missing])finishRound(true);
+ else {el('message').textContent='Try again. Position '+(r.missing+1)+' belongs to the '+(r.missing%2?'even':'odd')+' positions. Compare the other numbers in that pattern.';el('answer').select();}
+});
+el('reveal').addEventListener('click',()=>finishRound(false));
+el('next').addEventListener('click',()=>{
+ if(roundIndex===rounds.length){
+   roundIndex=0;solved=0;el('answer-form').hidden=false;el('sequence').hidden=false;el('hint').hidden=false;
+ }else if(++roundIndex===rounds.length){
+   el('round').textContent='Practice complete';el('answer-form').hidden=true;el('sequence').hidden=true;el('hint').hidden=true;
+   el('message').textContent='You solved '+solved+' of '+rounds.length+' without showing the solution.';el('next').textContent='Play again';el('round').focus();return;
+ }
+ draw();el('round').focus();
+});
+draw();
+</script></body></html>

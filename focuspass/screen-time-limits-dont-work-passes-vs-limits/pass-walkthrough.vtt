@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+Home shows the Pass wallet. Opening a protected app offers Go Back or Use a Pass.
+
+00:00:08.000 --> 00:00:16.000
+This Pass screen offers 5, 10 and 20 minutes. Ten is selected. A reason is optional.
+
+00:00:16.000 --> 00:00:24.000
+The selected app relocks when time expires. Protection Check shows setup status, not the relock itself.

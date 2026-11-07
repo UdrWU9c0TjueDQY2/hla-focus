@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#f5f2e9"><title>Arrow Repair — One Change, Two Instructions</title>
+<style>
+:root{color-scheme:light;--paper:#f5f2e9;--ink:#202943;--panel:#fffdf7;--blue:#244eae;--muted:#515a6f;--line:#bcc1ca;font:17px/1.55 system-ui,sans-serif;color:var(--ink);background:var(--paper)}*{box-sizing:border-box}body{margin:0}main,header,footer{width:min(100% - 2rem,54rem);margin:auto}header{padding:1.2rem 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;font-size:.8rem}a{color:var(--blue);text-underline-offset:4px}h1{font:500 clamp(2.7rem,9vw,5.2rem)/1.05 Georgia,serif;letter-spacing:-.03em;margin:.4em 0 .25em}h2{font-size:1.5rem;line-height:1.25;margin:.2em 0 .6em}p{max-width:65ch}.lead{font-size:1.2rem;max-width:38rem}.game{border:1px solid var(--line);border-radius:1rem;background:var(--panel);padding:clamp(.8rem,4vw,2rem);margin:1.8rem 0}.bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;color:var(--muted);font-size:.85rem}.targets{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1rem 0}.target{background:#e8edf9;padding:.8rem;border-radius:.5rem}.target small{display:block}.target strong{font-size:1.3rem}.arrows{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(4px,1vw,12px);margin:1.5rem 0}.arrows button{padding:.6rem .2rem;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:.5rem;min-width:0;min-height:86px}.arrows button[aria-pressed=true]{border-color:var(--blue);background:#dfe9ff;box-shadow:0 4px 0 var(--blue)}.arrows button:disabled{opacity:1}.arrow{display:block;font-size:clamp(1.7rem,7vw,3.2rem);line-height:1.1;font-family:Arial,sans-serif}.position{font-size:.72rem;display:block;margin-top:.45rem}.actions{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0}button{font:inherit;cursor:pointer;min-height:46px;border:1px solid var(--blue);padding:.5rem .9rem;border-radius:.4rem;background:transparent;color:var(--blue)}button.primary{background:var(--blue);color:white;font-weight:650}button:disabled{opacity:.5;cursor:default}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #963e06;outline-offset:4px}#selection{min-height:1.7em;color:var(--muted);font-size:.9rem}#feedback{padding:.8rem 0;font-weight:600;white-space:pre-line}#feedback:empty{padding:0}.note{font-size:.85rem;color:var(--muted)}.answers{padding-left:1.4rem}.answers li{padding:.4rem 0;border-bottom:1px solid var(--line)}textarea{width:100%;min-height:7rem;font:inherit;padding:.6rem;border:1px solid var(--line);border-radius:.4rem;color:var(--ink);background:white}.app{margin:2rem 0;padding:1.5rem 0;border-top:1px solid var(--line)}footer{font-size:.8rem;padding:1.2rem 0 2rem;border-top:1px solid var(--line)}[hidden]{display:none!important}@media(max-width:380px){header{display:block}.targets{gap:.4rem}.target{padding:.55rem}.target strong{font-size:1.15rem}}
+</style></head><body>
+<header><a href="https://udrwu9c0tjuedqy2.github.io/hla-focus/">Honest Little Apps</a><span>Six untimed logic puzzles</span></header>
+<main><h1>Arrow Repair</h1><p class="lead">Change one arrow. Make the middle arrow and the majority follow their instructions.</p><p>Choose a tile to flip it. Choosing a different tile restores your previous choice. When you are ready, check both instructions. Take as long as you like.</p>
+<section class="game" aria-labelledby="round-title"><div class="bar"><span id="progress">Puzzle 1 of 6</span><span>Exactly one change</span></div>
+<h2 id="round-title" tabindex="-1">Read both instructions</h2>
+<div id="play"><div class="targets"><div class="target"><small>Middle arrow must point</small><strong id="center-rule"></strong></div><div class="target"><small>At least three arrows must point</small><strong id="majority-rule"></strong></div></div>
+<div id="arrows" class="arrows" role="group" aria-label="Five arrow tiles, in reading order"></div>
+<p id="selection" role="status">Choose one arrow to change.</p>
+<div class="actions"><button id="check" class="primary" disabled>Check repair</button><button id="clear" disabled>Undo change</button><button id="next" class="primary" hidden>Next puzzle</button></div>
+<p id="feedback" role="status" aria-atomic="true"></p><p class="note">The middle is tile 3. “At least three” means three, four or five arrows. More than one tile can sometimes solve a puzzle.</p></div>
+<div id="results" hidden><p id="score"></p><ol id="answers" class="answers"></ol><label for="share-text">Challenge a friend to the same six puzzles</label><textarea id="share-text" readonly></textarea><div class="actions"><button id="copy">Copy result and link</button><button id="replay">Replay the same six</button></div><p id="copy-status" role="status"></p></div>
+<noscript><p>Enable JavaScript to play. For a paper example, start with left, left, left, right, right. Change one arrow so the middle points right and at least three point right.</p></noscript></section>
+<section><h2>Check the two instructions separately</h2><p>Read tile 3 first. Then count the arrows pointing in the requested majority direction. A repair can meet one instruction and miss the other. If the middle already points the right way, consider what changing an outside tile would do.</p></section>
+<section class="app"><h2>Continue with Attention Age</h2><p>Attention Age is an iPhone app with short signal, arrow and moving-shape activities. Its Interference task asks you to judge the middle arrow. Arrow Repair is an original browser puzzle about editing a row.</p><p><a href="https://apps.apple.com/us/app/attention-age-focus-test/id6795311726">View Attention Age on the App Store</a></p><p class="note">Free download with in-app purchases. See Apple for the current offer. The repair count describes this game’s six puzzles.</p></section>
+</main><footer>Published by Honest Little Apps, publisher of Attention Age. Choices stay in this tab and clear on reload. You can save this file and play offline. The App Store link needs a connection. <a href="https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/what-do-attention-test-scores-mean/">Read the focus-task glossary</a>.</footer>
+<script>
+(() => {
+  'use strict';
+  const puzzles = [
+    {row: [0,0,0,1,1], center: 1, majority: 1},
+    {row: [0,0,1,1,1], center: 1, majority: 0},
+    {row: [1,1,1,0,0], center: 0, majority: 0},
+    {row: [1,1,0,0,0], center: 0, majority: 1},
+    {row: [1,0,1,0,1], center: 0, majority: 0},
+    {row: [0,1,1,0,0], center: 1, majority: 1}
+  ];
+  const name = ['Left', 'Right'];
+  const symbol = ['←', '→'];
+  const byId = id => document.getElementById(id);
+  let index = 0;
+  let selected = null;
+  let checks = 0;
+  let solved = false;
+  let results = [];
+  const tiles = [];
+  function changedRow(puzzle, tile) {
+    return puzzle.row.map((direction, position) => position === tile ? 1 - direction : direction);
+  }
+  function grade(puzzle, tile) {
+    const row = changedRow(puzzle, tile);
+    return {
+      center: row[2] === puzzle.center,
+      majorityCount: row.filter(direction => direction === puzzle.majority).length,
+      row
+    };
+  }
+  function updateTiles() {
+    const puzzle = puzzles[index];
+    const row = changedRow(puzzle, selected);
+    tiles.forEach((tile, position) => {
+      tile.querySelector('.arrow').textContent = symbol[row[position]];
+      tile.setAttribute('aria-label', 'Tile ' + (position + 1) + (position === 2 ? ', middle' : '') + ', points ' + name[row[position]].toLowerCase() + (selected === position ? ', changed' : ''));
+      tile.setAttribute('aria-pressed', String(selected === position));
+      tile.disabled = solved;
+    });
+    byId('check').disabled = solved || selected === null;
+    byId('clear').disabled = solved || selected === null;
+    byId('selection').textContent = selected === null ? 'Choose one arrow to change.' : 'Tile ' + (selected + 1) + ' changed from ' + name[puzzle.row[selected]].toLowerCase() + ' to ' + name[row[selected]].toLowerCase() + '.';
+  }
+  function choose(position) {
+    if (solved) return;
+    selected = selected === position ? null : position;
+    byId('feedback').textContent = '';
+    updateTiles();
+  }
+  for (let position = 0; position < 5; position++) {
+    const tile = document.createElement('button');
+    tile.type = 'button';
+    const icon = document.createElement('span');
+    icon.className = 'arrow';
+    icon.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span');
+    label.className = 'position';
+    label.textContent = String(position + 1);
+    label.setAttribute('aria-hidden', 'true');
+    tile.append(icon, label);
+    tile.onclick = () => choose(position);
+    tiles.push(tile);
+    byId('arrows').append(tile);
+  }
+  function show() {
+    selected = null;
+    solved = false;
+    checks = 0;
+    byId('play').hidden = false;
+    byId('results').hidden = true;
+    byId('progress').textContent = 'Puzzle ' + (index + 1) + ' of ' + puzzles.length;
+    byId('round-title').textContent = 'Read both instructions';
+    byId('center-rule').textContent = name[puzzles[index].center];
+    byId('majority-rule').textContent = name[puzzles[index].majority];
+    byId('next').hidden = true;
+    byId('next').textContent = index === puzzles.length - 1 ? 'See your repairs' : 'Next puzzle';
+    byId('feedback').textContent = '';
+    updateTiles();
+  }
+  byId('clear').onclick = () => {
+    selected = null;
+    byId('feedback').textContent = '';
+    updateTiles();
+    tiles[0].focus();
+  };
+  byId('check').onclick = () => {
+    if (solved || selected === null) return;
+    checks++;
+    const puzzle = puzzles[index];
+    const result = grade(puzzle, selected);
+    solved = result.center && result.majorityCount >= 3;
+    byId('feedback').textContent = (result.center ? 'Middle matches. ' : 'Middle still needs to point ' + name[puzzle.center].toLowerCase() + '. ') + result.majorityCount + ' arrows point ' + name[puzzle.majority].toLowerCase() + (result.majorityCount >= 3 ? ', meeting the majority instruction.' : '; you need at least 3.');
+    if (solved) {
+      results.push({tile: selected, checks});
+      byId('next').hidden = false;
+      updateTiles();
+      byId('next').focus();
+    }
+  };
+  byId('next').onclick = () => {
+    if (!solved) return;
+    if (index < puzzles.length - 1) {
+      index++;
+      show();
+    } else {
+      byId('play').hidden = true;
+      byId('results').hidden = false;
+      byId('progress').textContent = 'Six puzzles repaired';
+      byId('round-title').textContent = 'Your repair log';
+      const first = results.filter(result => result.checks === 1).length;
+      const total = results.reduce((sum, result) => sum + result.checks, 0);
+      byId('score').textContent = first + ' of 6 solved on the first check. ' + total + ' checks altogether.';
+      byId('answers').replaceChildren(...results.map((result, number) => {
+        const item = document.createElement('li');
+        item.textContent = 'Changed tile ' + (result.tile + 1) + '. ' + result.checks + (result.checks === 1 ? ' check.' : ' checks.');
+        return item;
+      }));
+      byId('share-text').value = 'Arrow Repair: ' + first + ' of 6 solved on my first check. Try the same six untimed puzzles: https://udrwu9c0tjuedqy2.github.io/hla-focus/attention-age/what-do-attention-test-scores-mean/arrow-repair.html';
+    }
+    byId('round-title').focus();
+  };
+  byId('replay').onclick = () => {
+    index = 0;
+    results = [];
+    byId('copy-status').textContent = '';
+    show();
+    byId('round-title').focus();
+  };
+  byId('copy').onclick = async () => {
+    const field = byId('share-text');
+    try {
+      await navigator.clipboard.writeText(field.value);
+      byId('copy-status').textContent = 'Copied. Share it wherever you choose.';
+    } catch {
+      field.focus();
+      field.select();
+      byId('copy-status').textContent = 'Select and copy the result above.';
+    }
+  };
+  show();
+})();
+</script></body></html>
